@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 三个页面的链接方式：首页点击导航下拉栏中的链接进入列表页，
+    点击列表页中的立即抢购进入详情页，点击头部大图标返回首页。 -->
+
+    <!-- 详情页的首尾和公共一致 -->
+
+    <!-- 1、title 标题 -->
+    <title>详情页——手机页面</title>
+    <!-- 2、description 网站说明（超过120字以外不显示在搜索引擎中） -->
+    <meta name="description" content="品优购 JD.COM —— 专业的综合网上购物商城，销售家电、数码通讯、电脑、
+    家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品。便捷、诚信的服务，为您提供愉悦的网上购物体验！"/>
+    <!-- 3、keywords 关键字 6~8 个关键词左右 -->
+    <meta name="Keywords" content="网上购物，网上商城，手机，笔记本，电脑，MP3，CD，VCD，DV，相机，数码，配件，手表，存储卡，品优购" />
+
+    <!-- 引入网页图标 -->
+    <!-- 将 favicon.ico 文件直接放在根路径下，这里就可以直接调用 -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- 图标可以在比特虫网站转 .icon -->
+
+    <!-- 引入初始化的CSS文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">   <!-- 公共样式 -->
+    <link rel="stylesheet" href="css/detail.css">   <!-- 详情页样式 -->
+</head>
+<body>
+     <!-- 顶部快捷导航 start -->
+     <div class="shortcut">
+        <!-- 设置版心样式，居中对齐 -->
+        <div class="w">
+            <!-- 左盒子 -->
+            <div class="fl">
+                <ul>
+                    <li>品优购欢迎你！</li>
+                    <li>    
+                        请<a href="login.html">登录</a>      <!-- a 是内联元素，默认在一行 -->
+                        <a href="register.html" class="style-red">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右盒子 -->
+            <div class="fr">
+                <!-- ul>li>a -->
+                <!-- 不要加愚蠢的空格来分隔字符串，而是设置 margin -->
+                <ul>
+                    <li><a href="#">我的订单</a><span>|</span></li>
+                    <li>
+                        <a href="#">我的品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li><a href="#">品优购会员</a><span>|</span></li>
+                    <li><a href="#">企业采购</a><span>|</span></li>
+                    <li>
+                        <a href="#">关注品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">客户服务</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">网站导航</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 顶部快捷导航 end -->
+     
+    <!-- header start -->
+    <div class="header w">      <!-- 直接写一起也可以 -->
+        <!-- header 模块里是四个分散的模块，所以用定位而不是浮动 -->
+
+        <!-- 盒子一：logo 标志（定位） -->
+        <div class="logo">
+            <!-- logo中放h1标签（最重要），SEO（搜索引擎优化），告诉搜索引擎这里很重要 -->
+            <h1>
+                <!-- logo 返回首页-->
+                <a href="index.html" title="品优购">品优购</a>
+                <!-- a 标签 title 鼠标移入显示文字 -->
+                <!-- a 标签图片中加文字也是为了强调，但此处文字要不显示 -->
+            </h1>
+        </div>
+
+        <!-- 盒子二：search 搜索模块（定位） -->
+        <div class="search">
+            <!-- input value 默认输入框显示内容，鼠标点击后定位在 value 后面追加文字 -->
+            <!-- input placeholder 默认输入框显示内容，鼠标点击后定位在开头，键盘输入后自动清除 placeholder 默认内容 -->
+            <input type="text" class="text" placeholder="请搜索内容">
+            <button class="btn">搜索</button>
+        </div>
+
+        <!-- 盒子三：hotwords 热词模块（定位） -->       
+        <div class="hotwords">
+            <!-- 这里不是很重要所以不用 li 了，因为用了 li 还得通过浮动来变块元素为内联元素 -->
+            <a href="#" class="style-red">优惠购首发</a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9元团购</a>
+            <a href="#">美满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+
+        <!-- 盒子四：shopcar 购物车模块 -->
+        <div class="shopcar">
+            <!-- &#x + icon编号 + ; -->
+            <i class="iconfont cart">&#xe93a;</i>
+            <a href="cart.html">
+                我的购物车
+                <i class="iconfont rightArrow">&#xea51;</i>
+            </a>
+            
+            <!-- count 统计部分用绝对定位做，考虑到商品数量可能会撑开的问题，不要给宽度 -->
+            <!-- 是一个聊天气泡，左下角三角，其余三个圆角 -->
+            <i class="iconfont count">999+</i>
+
+        </div>
+
+    </div>
+    <!-- header end -->
+
+    <!-- nav start -->
+    <div class="nav">
+        <div class="w">
+            <!-- 盒子一：左侧浮动 dropdown 下拉导航 里面包含 dt dd -->
+            <div class="dropdown fl">
+                <!-- .dt+.dd + tab -->
+                <!-- 下拉导航标题 -->
+                <div class="dt">
+                    全部商品分类
+
+                    <!-- 注意这个模块要写在 dt 中，是个包含关系，不然后面写 :hover 根本定位不到 .dd -->
+                    <!-- 下拉导航弹出的模块：暂时隐藏 -->
+                    <div class="dd" style="display: none;">
+                        <!-- ul>li>a+i --> 
+                        <!-- 因为当鼠标挪动到标签上的时候，右箭头会自动消失，所以不用把右箭头字体图标放在 a 链接标签里 -->
+                        <ul>
+                            <li class="menu_item"><a href="#">家用电器</a><i class="iconfont smallRightArrow">&#xea50;</i></li>
+                            <li class="menu_item">
+                                <a href="#">手机</a>、
+                                <a href="#">数码</a>、
+                                <a href="#">通信</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">电脑</a>、
+                                <a href="#">办公</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">家居</a>、
+                                <a href="#">家具</a>、
+                                <a href="#">家装</a>、
+                                <a href="#">厨具</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">男装</a>、
+                                <a href="#">女装</a>、
+                                <a href="#">童装</a>、
+                                <a href="#">内衣</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">个户化妆</a>、
+                                <a href="#">清洁用品</a>、
+                                <a href="#">宠物</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">鞋靴</a>、
+                                <a href="#">箱包</a>、
+                                <a href="#">珠宝</a>、
+                                <a href="#">奢侈品</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">运动户外</a>、
+                                <a href="#">钟表</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">汽车</a>、
+                                <a href="#">汽车用品</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">母婴</a>、
+                                <a href="#">玩具乐器</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item"> 
+                                <a href="#">食品</a>、
+                                <a href="#">酒类</a>、
+                                <a href="#">生鲜</a>、
+                                <a href="#">特产</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item"><a href="#">医药保健</a><i class="iconfont smallRightArrow">&#xea50;</i></li>
+                            <li class="menu_item">
+                                <a href="#">图书</a>、
+                                <a href="#">音像</a>、
+                                <a href="#">电子书</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">彩票</a>、
+                                <a href="#">旅行</a>、
+                                <a href="#">充值</a>、
+                                <a href="#">票务</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">理财</a>、
+                                <a href="#">众筹</a>、
+                                <a href="#">白条</a>、
+                                <a href="#">保险</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 盒子二：左侧浮动 navitems 导航栏组 -->
+            <!-- 注意，右边是要空出来一大块的，所以两个盒子都是左对齐，从左到右排列 -->
+            <div class="navitems fl">
+                <ul>
+                    <li><a href="#">服装城</a></li>
+                    <li><a href="#">美妆馆</a></li>
+                    <li><a href="#">传智超市</a></li>
+                    <li><a href="#">全球购</a></li>
+                    <li><a href="#">闪购</a></li>
+                    <li><a href="#">团购</a></li>
+                    <li><a href="#">拍卖</a></li>
+                    <li><a href="#">有趣</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav end -->
+
+    <!-- 详情页部分 start -->
+    <div class="de_container w">
+        <!-- 面包屑导航（一层层寻回） -->
+        <div class="crumb_wrap">
+            <a href="#">手机、数码、通讯</a>
+            >    <a href="#">手机</a>
+            >    <a href="#">Apple 苹果</a>
+            >    <a href="#">iPhone 6S Plus 系列</a>
+        </div>
+
+        <!-- 产品介绍模块 -->
+        <!-- 此模块又分为左右两个模块，左侧基础介绍图片展示，右侧详情选择商品细节
+         注意，一般商品细节比较多，右边会比左边长，所以父容器不用给高度，而是靠内容撑开。 -->
+        <div class="product_intro clearfix">
+            <!-- 明显看到，父亲没高 + 孩子全浮动 = 清除浮动 -->
+            <!-- 左盒子：preview_wrap 预览区域 -->
+            <div class="preview_wrap fl">
+                <!-- 预览区的一号盒子：图片预览 -->
+                <div class="preview_img">
+                    <img src="./upload/s3.png" alt="">
+                </div>
+
+                <!-- 二号盒子：预览列表 -->
+                <div class="preview_list">
+                    <!-- 左右两个绝对定位的箭头，中间一个ul>li产品全方位展示图表 -->
+                    <!-- a.arrow_prev+a.arrow_next -->
+                    <a href="#" class="arrow_prev"></a>
+                    <a href="#" class="arrow_next"></a>
+
+                    <!-- ul.list_item -->                  
+                    <ul class="list_item">
+                        <li><img src="./upload/b1.png" alt=""></li>
+                        <li class="current"><img src="./upload/b2.png" alt=""></li>
+                        <li><img src="./upload/b3.png" alt=""></li>
+                        <li><img src="./upload/b1.png" alt=""></li>
+                        <li><img src="./upload/b2.png" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 右盒子：itemInfo_wrap 产品详情信息区域，不给高度 -->
+            <div class="itemInfo_wrap fr">
+                <!-- 一号盒子：头部 sku_name -->
+                <div class="sku_name">
+                    Apple iPhone 6s(A1700) 64G玫瑰金色 移动通信电信4G手机
+                </div>
+
+                <!-- 二号盒子：最新新闻 news -->
+                <div class="news">
+                    推荐选择下方【移动优惠购】，手机套餐齐搞定，不用换号，每月还有花费返。
+                </div>
+
+                <!-- 三号盒子：产品详细摘要 summary -->
+                <div class="summary">
+                    <!-- 一行一个普通列表(dl>dt>dd)，每行的左边和右边的格式都相同/类似 -->
+                    <!-- 1、价格 dl.summary_price -->
+                    <dl class="summary_price">
+                        <!-- dt（左）+dd（右） -->
+                        <dt>价格</dt>
+                        <dd>
+                            <!-- i：斜体 -->
+                            <i class="price">￥5299.00</i>
+                            <a href="#">降价通知</a>
+                            <div class="remark">累计评价 <i>612188</i></div>
+                        </dd>
+                    </dl>
+                    
+                    <!-- 2、促销 -->
+                    <dl class="summary_promotion">
+                        <dt>促销</dt>
+                        <dd>
+                            <em>加价购</em>
+                            满999.00另加20.00元，或满1999.00另加30.00元，
+                            或满2999.00另加40.00元，
+                            即可在购物车换购热销商品  详情 >
+                        </dd>
+                    </dl>
+
+                    <!-- 3、支持 -->
+                    <dl class="summary_support">
+                        <dt>支持</dt>
+                        <dd>以旧换新，闲置手机回收，4G套餐超值抢,礼品购</dd>
+                    </dl>
+
+                    <!-- 4、配送至 -->
+                    <dl class="summary_delivery">
+                        <dt>配送至</dt>
+                        <dd class="iconfont">
+                            北京海淀区中关 &#xea52;  有货 支持99元免运费 | 货到付款 | 211限时达 &#xea52;
+                            <br>由自营发货，并提供售后服务。11:00前完成下单，预计
+                            <i>今天(08月10日)送达</i>
+                        </dd>
+                    </dl>
+
+                    <!-- 用户选择模块 -->
+                    <!-- 5、选择颜色 -->
+                    <dl class="choose_color">
+                        <dt>选择颜色</dt>
+                        <dd>
+                            <!-- 可以点击的链接（但不跳转新页面：就这样写） -->
+                            <a href="javascript:;" class="current">玫瑰金</a>
+                            <a href="javascript:;">金色</a>
+                            <a href="javascript:;">白色</a>
+                            <a href="javascript:;">土豪色</a>
+                        </dd>
+                    </dl>
+
+                    <!-- 6、选择版本 -->
+                    <dl class="choose_version">
+                        <dt>选择版本</dt>
+                        <dd>
+                            <a href="javascript:;" class="current">公开版</a>
+                            <a href="javascript:;">移动4G</a>
+                        </dd>
+                    </dl>
+
+                    <!-- 7、选择容量 -->
+                    <dl class="choose_capacity">
+                        <dt>选择容量</dt>
+                        <dd>
+                            <a href="javascript:;">16GB</a>
+                            <a href="javascript:;" class="current">64GB</a>
+                            <a href="javascript:;">128G</a>
+                        </dd>
+                    </dl>
+                    <!-- 8、购买方式 -->
+                    <dl class="choose_type">
+                        <dt>购买方式</dt>
+                        <dd>
+                            <a href="javascript:;" class="current">官方标配</a>
+                            <a href="javascript:;">移动优惠购</a>
+                            <a href="javascript:;">电信优惠购</a>
+                        </dd>
+                    </dl>
+
+                    <!-- 9、套装 -->
+                    <dl class="choose_kit">
+                        <dt>套装</dt>
+                        <dd>
+                            <a href="javascript:;">保护套装</a>
+                            <a href="javascript:;">充电套装</a>
+                        </dd>
+                    </dl>
+
+                    <!-- 10、选择按钮组 -->
+                    <div class="choose_btns">
+                        <div class="choose_amount fl">
+                            <input type="text" placeholder="1">
+                            <a href="javascript:;" class="add">+</a>
+                            <a href="javascript:;" class="reduce">-</a>
+                        </div>
+                        <a href="cart.html" class="addcar fl">加入购物车</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 产品详细模块 product_detail -->
+        <div class="product_detail clearfix">
+            <!-- 左盒子：左浮动 aside，有宽无高 -->
+            <div class="aside fl">
+                <!-- 盒子一：tab_list tab 栏切换布局-->
+                <div class="tab_list">
+                    <ul>
+                        <li class="first_tab current">相关分类</li>
+                        <li class="second_tab">推荐品牌</li>
+                    </ul>
+                </div>
+
+                <!-- 盒子二：tab_con 对应 tab 栏的 li -->
+                <div class="tab_con">
+                    <ul>
+                        <li>
+                            <img src="upload/like_05.png" alt="">
+                            <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                            <div class="as_price">￥19</div>
+                            <a href="cart.html" class="as_addcar">加入购物车</a>
+                        </li>
+                        <li>
+                            <img src="upload/like_05.png" alt="">
+                            <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                            <div class="as_price">￥19</div>
+                            <a href="cart.html" class="as_addcar">加入购物车</a>
+                        </li>
+                        <li>
+                            <img src="upload/like_05.png" alt="">
+                            <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                            <div class="as_price">￥19</div>
+                            <a href="cart.html" class="as_addcar">加入购物车</a>
+                        </li>
+                        <li>
+                            <img src="upload/like_05.png" alt="">
+                            <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                            <div class="as_price">￥19</div>
+                            <a href="cart.html" class="as_addcar">加入购物车</a>
+                        </li>
+                        <li>
+                            <img src="upload/like_05.png" alt="">
+                            <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                            <div class="as_price">￥19</div>
+                            <a href="cart.html" class="as_addcar">加入购物车</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- 右盒子：右浮动 detail，有宽无高 -->
+            <div class="detail fr">
+                <!-- tab 切换栏 -->
+                <div class="detail_tab_list">
+                    <ul>
+                        <li class="current">产品介绍</li>
+                        <li>规格与包装</li>
+                        <li>售后保障</li>
+                        <li>商品评价（50000）</li>
+                        <li>手机社区</li>
+                    </ul>
+                </div>
+
+                <!-- tab 栏对应的详细信息 -->
+                <div class="detail_tab_con">
+                    <!-- tab 标签多少个详情多少个-->
+                    <div class="item">
+                        <ul>
+                            <li>分辨率：1920*1080(FHD)</li>
+                            <li>后置摄像头：1200万像素</li>
+                            <li>前置摄像头：500万像素</li>
+                            <li>频率：以官网信息为准</li>
+                            <li>品牌：Apple 关注</li>
+                            <li>核数：其他</li>
+                            <li>商品名称：APPLEiPhone 6s Plus</li>
+                            <li>商品编号：1861098</li>
+                            <li>商品毛重：0.51kg</li>
+                            <li>商品产地：中国大陆</li>
+                            <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
+                            <li>系统：苹果(IOS)</li>
+                            <li>像素：1000-1600万</li>
+                            <li>机身内存：64GB</li>
+                        </ul>
+                        <p>
+                            <a href="#" class="iconfont">查看更多参数 &#xea52;</a>
+                        </p>
+                        <img src="./upload/intro01.png" alt="">
+                        <img src="./upload/intro02.png" alt="">
+                        <img src="./upload/intro03.png" alt="">
+                    </div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 详情页部分 end -->
+
+    <!-- footer start -->
+    <div class="footer">
+        <div class="w">
+            <!-- 盒子一：mod_service 服务模块 -->
+            <div class="mod_service">
+                <ul>
+                    <!-- 每个 li 标签里还有两个左右盒子（左右icon，右两行字） -->
+                    <li>
+                        <!-- 正 -->
+                        <i class="mod_service_icon mod_service_zheng"></i>
+                        <div class="mod_service_title">
+                            <h5>正品保障</h5>
+                            <p>正品保障，提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 快 -->
+                        <i class="mod_service_icon mod_service_kuai"></i>
+                        <div class="mod_service_title">
+                            <h5>急速物流</h5>
+                            <p>急速物流，急速送达</p>  
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 保 -->
+                        <i class="mod_service_icon mod_service_bao"></i>
+                        <div class="mod_service_title">
+                            <h5>无忧售后</h5>
+                            <p>7天无理由退换货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 定 -->
+                        <i class="mod_service_icon mod_service_ding"></i>
+                        <div class="mod_service_title">
+                            <h5>特色服务</h5>
+                            <p>私人定制家电套餐</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 帮 -->
+                        <i class="mod_service_icon mod_service_bang"></i>
+                        <div class="mod_service_title">
+                            <h5>帮助中心</h5>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 盒子二：mod_help 帮助模块 -->
+            <div class="mod_help">
+                <!-- ul和li 是无序列表的意思。
+                ol和li 是有序列表的意思。
+                dl、dt和dd是普通列表的意思。 -->
+
+                <!-- dl（声明）>dt（标题）+dd（内容） 必须成对出现 -->
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item mod_help_img">
+                    <dt>帮助中心</dt>
+                    <dd>
+                        <img src="./upload/QR_Code.png" alt="">
+                        <p>品优购客户端</p>
+                    </dd>
+                </dl>
+            </div>
+
+            <!-- 盒子三：mod_copyright 版权模块 -->
+            <div class="mod_copyright">
+                <p class="mod_copyright_links">
+                    关于我们    |    联系我们    |    联系客服    |    商家入驻    |    营销中心    |
+                        手机品优购    |    友情链接    |    销售联盟    |    
+                        品优购社区    |    品优购公益    |    English Site    |    Contact U
+                </p>
+                <p class="mod_copyright_info">
+                    地址：北京市昌平区建材城西路金燕龙办公楼一层
+                    邮编：100096  电话：400-618-4000  传真：010-82935100
+                    邮箱：zhanghj+itcast.cn
+                    <br>
+                    京ICP备08001421号京公网安备110108007702
+                </p> 
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+</body>
+</html>

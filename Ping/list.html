@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 列表子页也需要做三大标签的优化 -->
+
+    <!-- 1、title 标题 -->
+    <title>列表页——手机页面</title>
+    <!-- 2、description 网站说明（超过120字以外不显示在搜索引擎中） -->
+    <meta name="description" content="品优购 JD.COM —— 专业的综合网上购物商城，销售家电、数码通讯、电脑、
+    家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品。便捷、诚信的服务，为您提供愉悦的网上购物体验！"/>
+    <!-- 3、keywords 关键字 6~8个关键词左右 -->
+    <meta name="Keywords" content="网上购物，网上商城，手机，笔记本，电脑，MP3，CD，VCD，DV，相机，数码，配件，手表，存储卡，品优购" />
+
+    <!-- 引入网页图标 -->
+    <!-- 将 favicon.ico 文件直接放在根路径下，这里就可以直接调用 -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- 图标可以在比特虫网站转.icon -->
+
+    <!-- 引入初始化的CSS文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">   <!-- 公共样式css -->
+    <link rel="stylesheet" href="css/list.css">     <!-- 列表页自己的 css -->
+
+</head>
+<body>
+    
+    <!-- 需要什么公共部分就复制过来什么部分 -->
+    <!-- 公共一：顶部快捷导航 start -->
+    <div class="shortcut">
+        <!-- 设置版心样式，居中对齐 -->
+        <div class="w">
+            <!-- 左盒子 -->
+            <div class="fl">
+                <ul>
+                    <li>品优购欢迎你！</li>
+                    <li>    
+                        请<a href="login.html">登录</a>      <!-- a 是内联元素，默认在一行 -->
+                        <a href="register.html" class="style-red">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右盒子 -->
+            <div class="fr">
+                <!-- ul>li>a -->
+                <!-- 不要加愚蠢的空格来分隔字符串，而是设置 margin -->
+                <ul>
+                    <li><a href="#">我的订单</a><span>|</span></li>
+                    <li>
+                        <a href="#">我的品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li><a href="#">品优购会员</a><span>|</span></li>
+                    <li><a href="#">企业采购</a><span>|</span></li>
+                    <li>
+                        <a href="#">关注品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">客户服务</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">网站导航</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 顶部快捷导航 end -->
+     
+    <!-- 公共二：header start -->
+    <!-- 此处与首页的区别是左大图标右边多了一个“秒杀”图标 -->
+    <div class="header w">      <!-- 直接写一起也可以 -->
+        <!-- header 模块里是四个分散的模块，所以用定位而不是浮动 -->
+
+        <!-- 盒子一：logo 标志（定位） -->
+        <div class="logo">
+            <!-- logo中放h1标签（最重要），SEO（搜索引擎优化），告诉搜索引擎这里很重要 -->
+            <h1>
+                <!-- logo 返回首页-->
+                <a href="index.html" title="品优购">品优购</a>
+                <!-- a 标签 title 鼠标移入显示文字 -->
+                <!-- a 标签图片中加文字也是为了强调，但此处文字要不显示 -->
+            </h1>
+        </div>
+
+        <div class="sk">
+            <h2>
+                <!-- 秒杀副图标 -->
+                <a href="list.html" title="秒杀">秒杀</a>
+            </h2>
+        </div>
+
+        <!-- 盒子二：search 搜索模块（定位） -->
+        <div class="search">
+            <!-- input value 默认输入框显示内容，鼠标点击后定位在 value 后面追加文字 -->
+            <!-- input placeholder 默认输入框显示内容，鼠标点击后定位在开头，键盘输入后自动清除 placeholder 默认内容 -->
+            <input type="text" class="text" placeholder="请搜索内容">
+            <button class="btn">搜索</button>
+        </div>
+
+        <!-- 盒子三：hotwords 热词模块（定位） -->       
+        <div class="hotwords">
+            <!-- 这里不是很重要所以不用 li 了，因为用了 li 还得通过浮动来变块元素为内联元素 -->
+            <a href="#" class="style-red">优惠购首发</a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9元团购</a>
+            <a href="#">美满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+
+        <!-- 盒子四：shopcar 购物车模块 -->
+        <div class="shopcar">
+            <!-- &#x + icon编号 + ; -->
+            <i class="iconfont cart">&#xe93a;</i>
+            <a href="cart.html">
+                我的购物车
+                <i class="iconfont rightArrow">&#xea51;</i>
+            </a>
+            <!-- count 统计部分用绝对定位做，考虑到商品数量可能会撑开的问题，不要给宽度 -->
+            <!-- 是一个聊天气泡，左下角三角，其余三个圆角 -->
+            <i class="iconfont count">999+</i>
+
+        </div>
+
+    </div>
+    <!-- header end -->
+
+    <!-- 公共三：nav start -->
+    <!-- 此处与首页只有最外版心一致 -->
+    <div class="nav">
+        <div class="w">
+            <!-- 左盒子：秒杀列表 -->
+            <div class="sk_list fl">
+                <ul>
+                    <li><a href="#">品优秒杀</a></li>
+                    <li><a href="#">即将售罄</a></li>
+                    <li><a href="#">超值低价</a></li>
+                </ul>
+            </div>
+
+            <!-- 右盒子：商品类型 -->
+            <div class="sk_con fl">
+                <ul>
+                    <li><a href="#">女装</a></li>
+                    <li><a href="#" class="style-red">女鞋</a></li>
+                    <li><a href="#">男装</a></li>
+                    <li><a href="#">男鞋</a></li>
+                    <li><a href="#">母婴童装</a></li>
+                    <li><a href="#">食品</a></li>
+                    <li><a href="#">智能数码</a></li>
+                    <li><a href="#">运动户外</a></li>
+                    <li>
+                        <a href="#">
+                            更多
+                            <i class="iconfont">&#xea52;</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav end -->
+
+    <!-- 列表页主题盒子 start -->
+    <!-- 和楼层 floor 模块一样，不要给高度，因为不知道有多少个，让内容撑开即可 -->
+    <div class="sk_container w">
+        <!-- 盒子一：sk_hd 插入分类项图片即可 -->
+        <div class="sk_hd">
+            <img src="./upload/bg_03.png" alt="">
+        </div>
+
+        <!-- 盒子二：sk_bd 每个分类下的 ul>li 列表 -->
+        <!-- 因为 sk_bd 本身没有设置高度，而所有子元素（li）又全部浮动，所以必须给 sk_bd 清除浮动，不然下面的元素就会挤上来 -->
+
+        <!-- 清除浮动（的影响）的一种解释：overflow，zoom 这个词的意思是说，要掩藏，要缩放。 
+        那么要掩藏，缩放 就要知道 这个盒子的尺寸，要不然怎么去执行掩藏。  
+        这样的话 就会触发浏览器 去计算这个盒子的 高，宽。
+        至于，清除浮动 只是表象而已！-->
+
+        <div class="sk_bd clearfix">
+            <ul>
+                <!-- 秒杀产品布局 -->
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+                <li class="sk_goods">
+                    <!-- 1、图片 -->
+                    <img class="sk_goods_img" src="./upload/mobile.png" alt="">
+
+                    <!-- 2、标题 -->
+                    <h5 class="sk_goods_title">Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机</h5>
+                    <!-- 这里加 class 的原因是因为标题一般都是从后台获得的，所以还是加上 -->
+                    <!-- 而且单独起类名的好处还有可以直接在样式中使用，而不用层层寻找 -->
+                    <!-- 而且非常好调五个子布局之间的位置 -->
+
+                    <!-- 3、价格 -->
+                    <p class="sk_goods_price"><em>￥6088</em><del>￥6988</del></p>
+                    <!-- 这里放个 em（强调文本） 就非常方便后面的样式定位 -->
+
+                    <!-- 4、销售量 -->
+                    <!-- .sk_goods_progress{已售87%} -->
+                    <div class="sk_goods_progress">
+                        已售<i>87%</i>
+                        <div class="bar">
+                            <!-- 进度条的实现就是一个div外框中再装一个div，用来实现进度条的填充 -->
+                            <div class="bar_in"></div>
+                        </div>
+                        剩余<em>29</em>件
+                    </div>
+
+                    <!-- 5、抢购链接 -->
+                    <a href="detail.html" class="sk_goods_buy">立即抢购</a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- 分页模块 start -->
+        <div class="page">
+            <!-- span.page_num+span.page_skip （直接全写行内块，text-align 全部居中，就不用左右浮动了） -->
+            <!-- 盒子一：page_num 页码，里面放 a ，a 转行内块 -->
+            <span class="page_num">
+                <!-- 要给一列添加 # ，按住滚轮即可 -->
+                <a href="#" class="pn_prev">&lt;&lt;上一页</a>
+                <a href="#">1</a>
+                <a href="#" class="current">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#" class="dotted">...</a>
+                <a href="#" class="pn_next">下一页&gt;&gt;</a>
+            </span>
+            
+            <!-- 盒子二：page_skip 跳转，input、button -->
+            <span class="page_skip">
+                共10页 到第
+                <!-- input:text 页码输入框 -->
+                <input type="text">
+                页
+                <!-- button 跳转按钮 -->
+                <button>跳转</button>
+            </span>
+
+        </div>
+        <!-- 分页模块 end -->
+
+    </div>
+    <!-- 列表页主题盒子 end -->
+
+
+
+    <!-- 公共四：footer start -->
+    <div class="footer">
+        <div class="w">
+            <!-- 盒子一：mod_service 服务模块 -->
+            <div class="mod_service">
+                <ul>
+                    <!-- 每个 li 标签里还有两个左右盒子（左右icon，右两行字） -->
+                    <li>
+                        <!-- 正 -->
+                        <i class="mod_service_icon mod_service_zheng"></i>
+                        <div class="mod_service_title">
+                            <h5>正品保障</h5>
+                            <p>正品保障，提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 快 -->
+                        <i class="mod_service_icon mod_service_kuai"></i>
+                        <div class="mod_service_title">
+                            <h5>急速物流</h5>
+                            <p>急速物流，急速送达</p>  
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 保 -->
+                        <i class="mod_service_icon mod_service_bao"></i>
+                        <div class="mod_service_title">
+                            <h5>无忧售后</h5>
+                            <p>7天无理由退换货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 定 -->
+                        <i class="mod_service_icon mod_service_ding"></i>
+                        <div class="mod_service_title">
+                            <h5>特色服务</h5>
+                            <p>私人定制家电套餐</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 帮 -->
+                        <i class="mod_service_icon mod_service_bang"></i>
+                        <div class="mod_service_title">
+                            <h5>帮助中心</h5>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 盒子二：mod_help 帮助模块 -->
+            <div class="mod_help">
+                <!-- ul和li 是无序列表的意思。
+                ol和li 是有序列表的意思。
+                dl、dt和dd是普通列表的意思。 -->
+
+                <!-- dl（声明）>dt（标题）+dd（内容） 必须成对出现 -->
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item mod_help_img">
+                    <dt>帮助中心</dt>
+                    <dd>
+                        <img src="./upload/QR_Code.png" alt="">
+                        <p>品优购客户端</p>
+                    </dd>
+                </dl>
+            </div>
+
+            <!-- 盒子三：mod_copyright 版权模块 -->
+            <div class="mod_copyright">
+                <p class="mod_copyright_links">
+                    关于我们    |    联系我们    |    联系客服    |    商家入驻    |    营销中心    |
+                        手机品优购    |    友情链接    |    销售联盟    |    
+                        品优购社区    |    品优购公益    |    English Site    |    Contact U
+                </p>
+                <p class="mod_copyright_info">
+                    地址：北京市昌平区建材城西路金燕龙办公楼一层
+                    邮编：100096  电话：400-618-4000  传真：010-82935100
+                    邮箱：zhanghj+itcast.cn
+                    <br>
+                    京ICP备08001421号京公网安备110108007702
+                </p> 
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+</body>
+</html>

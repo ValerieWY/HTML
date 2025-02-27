@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css"> 
+    <link rel="stylesheet" href="css/cart.css">
+
+</head>
+<body>
+    <!-- 顶部快捷导航 start -->
+    <div class="shortcut">
+        <!-- 设置版心样式，居中对齐 -->
+        <div class="w">
+            <!-- 左盒子 -->
+            <div class="fl">
+                <ul>
+                    <li>品优购欢迎你！</li>
+                    <li>    
+                        请<a href="login.html">登录</a>      <!-- a 是内联元素，默认在一行 -->
+                        <a href="register.html" class="style-red">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右盒子 -->
+            <div class="fr">
+                <!-- ul>li>a -->
+                <!-- 不要加愚蠢的空格来分隔字符串，而是设置 margin -->
+                <ul>
+                    <li><a href="#">我的订单</a><span>|</span></li>
+                    <li>
+                        <a href="#">我的品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li><a href="#">品优购会员</a><span>|</span></li>
+                    <li><a href="#">企业采购</a><span>|</span></li>
+                    <li>
+                        <a href="#">关注品优购</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">客户服务</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">网站导航</a>
+                        <i class="iconfont downArrow">&#xea52;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 顶部快捷导航 end -->
+        
+    <!-- header start -->
+    <div class="header w">      <!-- 直接写一起也可以 -->
+        <!-- header 模块里是四个分散的模块，所以用定位而不是浮动 -->
+
+        <!-- 盒子一：logo 标志（定位） -->
+        <div class="logo">
+            <!-- logo中放h1标签（最重要），SEO（搜索引擎优化），告诉搜索引擎这里很重要 -->
+            <h1>
+                <!-- logo 返回首页-->
+                <a href="index.html" title="品优购">品优购</a>
+                <!-- a 标签 title 鼠标移入显示文字 -->
+                <!-- a 标签图片中加文字也是为了强调，但此处文字要不显示 -->
+            </h1>
+        </div>
+
+        <!-- 盒子二：search 搜索模块（定位） -->
+        <div class="search">
+            <!-- input value 默认输入框显示内容，鼠标点击后定位在 value 后面追加文字 -->
+            <!-- input placeholder 默认输入框显示内容，鼠标点击后定位在开头，键盘输入后自动清除 placeholder 默认内容 -->
+            <input type="text" class="text" placeholder="请搜索内容">
+            <button class="btn">搜索</button>
+        </div>
+
+        <!-- 盒子三：hotwords 热词模块（定位） -->       
+        <div class="hotwords">
+            <!-- 这里不是很重要所以不用 li 了，因为用了 li 还得通过浮动来变块元素为内联元素 -->
+            <a href="#" class="style-red">优惠购首发</a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9元团购</a>
+            <a href="#">美满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+
+        <!-- 盒子四：shopcar 购物车模块 -->
+        <div class="shopcar">
+            <!-- &#x + icon编号 + ; -->
+            <i class="iconfont cart">&#xe93a;</i>
+            <a href="cart.html">
+                我的购物车
+                <i class="iconfont rightArrow">&#xea51;</i>
+            </a>
+            
+            <!-- count 统计部分用绝对定位做，考虑到商品数量可能会撑开的问题，不要给宽度 -->
+            <!-- 是一个聊天气泡，左下角三角，其余三个圆角 -->
+            <i class="iconfont count">999+</i>
+
+        </div>
+
+    </div>
+    <!-- header end -->
+
+    <!-- nav start -->
+    <div class="nav">
+        <div class="w">
+            <!-- 盒子一：左侧浮动 dropdown 下拉导航 里面包含 dt dd -->
+            <div class="dropdown fl">
+                <!-- .dt+.dd + tab -->
+                <!-- 下拉导航标题 -->
+                <div class="dt">
+                    全部商品分类
+
+                    <!-- 注意这个模块要写在 dt 中，是个包含关系，不然后面写 :hover 根本定位不到 .dd -->
+                    <!-- 下拉导航弹出的模块-->
+                    <div class="dd" style="display: none;">
+                        <!-- ul>li>a+i -->
+                        <!-- 因为当鼠标挪动到标签上的时候，右箭头会自动消失，所以不用把右箭头字体图标放在 a 链接标签里 -->
+                        <ul>
+                            <li class="menu_item"><a href="#">家用电器</a><i class="iconfont smallRightArrow">&#xea50;</i></li>
+                            <li class="menu_item">
+                                <!-- 点击手机链接入列表页 -->
+                                <a href="list.html">手机</a>、
+                                <a href="#">数码</a>、
+                                <a href="#">通信</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">电脑</a>、
+                                <a href="#">办公</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">家居</a>、
+                                <a href="#">家具</a>、
+                                <a href="#">家装</a>、
+                                <a href="#">厨具</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">男装</a>、
+                                <a href="#">女装</a>、
+                                <a href="#">童装</a>、
+                                <a href="#">内衣</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">个户化妆</a>、
+                                <a href="#">清洁用品</a>、
+                                <a href="#">宠物</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">鞋靴</a>、
+                                <a href="#">箱包</a>、
+                                <a href="#">珠宝</a>、
+                                <a href="#">奢侈品</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">运动户外</a>、
+                                <a href="#">钟表</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">汽车</a>、
+                                <a href="#">汽车用品</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">母婴</a>、
+                                <a href="#">玩具乐器</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item"> 
+                                <a href="#">食品</a>、
+                                <a href="#">酒类</a>、
+                                <a href="#">生鲜</a>、
+                                <a href="#">特产</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item"><a href="#">医药保健</a><i class="iconfont smallRightArrow">&#xea50;</i></li>
+                            <li class="menu_item">
+                                <a href="#">图书</a>、
+                                <a href="#">音像</a>、
+                                <a href="#">电子书</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">彩票</a>、
+                                <a href="#">旅行</a>、
+                                <a href="#">充值</a>、
+                                <a href="#">票务</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#">理财</a>、
+                                <a href="#">众筹</a>、
+                                <a href="#">白条</a>、
+                                <a href="#">保险</a>
+                                <i class="iconfont smallRightArrow">&#xea50;</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 盒子二：左侧浮动 navitems 导航栏组 -->
+            <!-- 注意，右边是要空出来一大块的，所以两个盒子都是左对齐，从左到右排列 -->
+            <div class="navitems fl">
+                <ul>
+                    <li><a href="#">服装城</a></li>
+                    <li><a href="#">美妆馆</a></li>
+                    <li><a href="#">传智超市</a></li>
+                    <li><a href="#">全球购</a></li>
+                    <li><a href="#">闪购</a></li>
+                    <li><a href="#">团购</a></li>
+                    <li><a href="#">拍卖</a></li>
+                    <li><a href="#">有趣</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav end -->
+
+    <!-- 购物车全部商品 -->
+    <div class="goods w">
+        <!-- 大标题 -->
+        <h4>全部商品 11</h4>
+
+        <!-- 购物车头部栏 -->
+        <div class="goods_title">
+            <div class="goods_title_tab">
+                <ul>
+                    <li class="all">
+                        <!-- &nbsp; 空格    &emsp; tab 制表符 -->
+                        <input type="checkbox">
+                        全选
+                    </li>
+                    <li class="good">商品</li>
+                    <li class="price">单价（元）</li>
+                    <li class="amounts">数量</li>
+                    <li class="tip">小计（元）</li>
+                    <li class="handle">操作</li>
+                </ul>
+            </div>
+            <div class="goods_title_price">
+                <ul>
+                    <li class="czz"><em>传智自营</em></li>
+                    <li class="freight">运费：￥6.00<span>还差￥99.00免运费</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 购物车详细信息 -->
+        <div class="goods_detail">
+            <ul class="goods_list">
+                <li class="goods_list_img">
+                    <img src="./upload/mobile.png" alt="">
+                </li>
+                <li class="goods_list_good">
+                    Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                </li>
+                <li class="goods_list_info"> 
+                    颜色: 银色
+                    <br>处理器: Core I5
+                    <br>内存: 8GB
+                    <br>尺寸: 13.3英寸
+                </li>
+                <li class="goods_list_price">8848.00</li>
+                <li class="goods_list_amounts">
+                    <div>
+                        <!-- 可以点击的链接（但不跳转新页面） -->
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text" placeholder="1"> 
+                        <a href="javascript:;" class="add">+</a>
+                        <br><span>有货</span>
+                    </div>
+                    
+                </li>
+                <li class="goods_list_tip">8848.00</li>
+                <li class="goods_list_handle">
+                    删除
+                    <br>移动到我的关注
+                </li>
+            </ul>
+
+            <!-- 第二个有额外推荐的换购信息 -->
+            <div class="change"><span>换购</span>活动商品购满2888.00元，即可加价换购商品1件 ><span>查看换购品</span>去凑单 ></div>
+            <ul class="goods_list">
+                
+                <li class="goods_list_img">
+                    <img src="./upload/mobile.png" alt="">
+                </li>
+                <li class="goods_list_good">
+                    Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                </li>
+                <li class="goods_list_info"> 
+                    颜色: 银色
+                    <br>处理器: Core I5
+                    <br>内存: 8GB
+                    <br>尺寸: 13.3英寸
+                </li>
+                <li class="goods_list_price">8848.00</li>
+                <li class="goods_list_amounts">
+                    <div>
+                        <!-- 可以点击的链接（但不跳转新页面） -->
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text" placeholder="1"> 
+                        <a href="javascript:;" class="add">+</a>
+                        <br><span>有货</span>
+                    </div>
+                    
+                </li>
+                <li class="goods_list_tip">8848.00</li>
+                <li class="goods_list_handle">
+                    删除
+                    <br>移动到我的关注
+                </li>
+            </ul>
+            <div class="gift">
+                [赠品]圣迪威（Sendio）MacBook13.3寸屏幕保...  X1
+                <br>[赠品]圣迪威（Sendio）MacBook13.3清洁套装...  X1
+            </div>
+
+
+            <!-- 第三个是当前选中 -->
+            <ul class="goods_list active">
+                <li class="goods_list_img">
+                    <input type="checkbox">
+                    <img src="./upload/mobile.png" alt="">
+                </li>
+                <li class="goods_list_good">
+                    Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                </li>
+                <li class="goods_list_info"> 
+                    颜色: 银色
+                    <br>处理器: Core I5
+                    <br>内存: 8GB
+                    <br>尺寸: 13.3英寸
+                </li>
+                <li class="goods_list_price">8848.00</li>
+                <li class="goods_list_amounts">
+                    <div>
+                        <!-- 可以点击的链接（但不跳转新页面） -->
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text" placeholder="1"> 
+                        <a href="javascript:;" class="add">+</a>
+                        <br><span>有货</span>
+                    </div>
+                    
+                </li>
+                <li class="goods_list_tip">8848.00</li>
+                <li class="goods_list_handle">
+                    删除
+                    <br>移动到我的关注
+                </li>
+            </ul>
+            <ul class="goods_list">
+                <li class="goods_list_img">
+                    <img src="./upload/mobile.png" alt="">
+                </li>
+                <li class="goods_list_good">
+                    Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                </li>
+                <li class="goods_list_info"> 
+                    颜色: 银色
+                    <br>处理器: Core I5
+                    <br>内存: 8GB
+                    <br>尺寸: 13.3英寸
+                </li>
+                <li class="goods_list_price">8848.00</li>
+                <li class="goods_list_amounts">
+                    <div>
+                        <!-- 可以点击的链接（但不跳转新页面） -->
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text" placeholder="1"> 
+                        <a href="javascript:;" class="add">+</a>
+                        <br><span>有货</span>
+                    </div>
+                    
+                </li>
+                <li class="goods_list_tip">8848.00</li>
+                <li class="goods_list_handle">
+                    删除
+                    <br>移动到我的关注
+                </li>
+            </ul>
+            <ul class="goods_list">
+                <li class="goods_list_img">
+                    <img src="./upload/mobile.png" alt="">
+                </li>
+                <li class="goods_list_good">
+                    Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                </li>
+                <li class="goods_list_info"> 
+                    颜色: 银色
+                    <br>处理器: Core I5
+                    <br>内存: 8GB
+                    <br>尺寸: 13.3英寸
+                </li>
+                <li class="goods_list_price">8848.00</li>
+                <li class="goods_list_amounts">
+                    <div>
+                        <!-- 可以点击的链接（但不跳转新页面） -->
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text" placeholder="1"> 
+                        <a href="javascript:;" class="add">+</a>
+                        <br><span>有货</span>
+                    </div>
+                    
+                </li>
+                <li class="goods_list_tip">8848.00</li>
+                <li class="goods_list_handle">
+                    删除
+                    <br>移动到我的关注
+                </li>
+            </ul>
+
+        </div>
+        <!-- 购物车换购 -->
+        <div class="goods_change clearfix">
+            <div class="goods_change_title fl">
+                <em>神州数码专营</em>
+            </div>
+            <div class="goods_change_list fl">
+                <!-- 和购物车第二个相同，copy -->
+                <div class="change"><span>换购</span>活动商品购满2888.00元，即可加价换购商品1件 ><span>查看换购品</span>去凑单 ></div>
+
+                <ul class="goods_list">
+                    
+                    <li class="goods_list_img">
+                        <img src="./upload/mobile.png" alt="">
+                    </li>
+                    <li class="goods_list_good">
+                        Apple Macbook Air 13.3英寸笔记本电脑 银色<br>（Corei5）处理器/8GB内存
+                    </li>
+                    <li class="goods_list_info"> 
+                        颜色: 银色
+                        <br>处理器: Core I5
+                        <br>内存: 8GB
+                        <br>尺寸: 13.3英寸
+                    </li>
+                    <li class="goods_list_price">8848.00</li>
+                    <li class="goods_list_amounts">
+                        <div>
+                            <!-- 可以点击的链接（但不跳转新页面） -->
+                            <a href="javascript:;" class="reduce">-</a>
+                            <input type="text" placeholder="1"> 
+                            <a href="javascript:;" class="add">+</a>
+                            <br><span>有货</span>
+                        </div>
+                        
+                    </li>
+                    <li class="goods_list_tip">8848.00</li>
+                    <li class="goods_list_handle">
+                        删除
+                        <br>移动到我的关注
+                    </li>
+                </ul>
+                <div class="gift">
+                    [赠品]圣迪威（Sendio）MacBook13.3寸屏幕保...  X1
+                    <br>[赠品]圣迪威（Sendio）MacBook13.3清洁套装...  X1
+                </div>
+            </div>
+        </div>
+        <!-- 购物车结算 -->
+        <div class="goods_accounts clearfix">
+            <div class="tools fl">
+                <ul>
+                    <li><a href="#">全选</a></li>
+                    <li><a href="#">删除选中的商品</a></li>
+                    <li><a href="#">移到我的关注</a></li>
+                    <li><a href="#">清除下柜商品</a></li>
+                </ul>
+                
+            </div>
+
+            <div class="pay fr">
+                <div class="total fl">
+                    <div class="up fr">已选择 <em> 0 </em> 件商品 总价（不含运费）：<i>¥16283.00</i></div>
+                    <div class="down fr">已节省：￥20.00</div>
+                </div>
+                <div class="purchase fr">
+                    <a href="#">结算</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 购物车重新加入失效商品 -->
+        <div class="goods_rejoin">
+            <!-- 没有任何样式，可以不加div -->
+            已删除的商品，您可以重新购买或加关注：
+            <div class="goods_rejoin_delete">   
+                <ul>
+                    <!-- 这里不用专门给每个li标签类名，可以使用nth-of-type(1)来设置css -->
+                    <li>圣迪威（Sendio）MacBook13.3清洁套</li>
+                    <li>8488.00</li>
+                    <li>1</li>
+                    <li>重新购买</li>
+                    <li>移到我的关注</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 购物车猜你喜欢 -->
+        <div class="goods_guesslike">
+            <!-- tab栏切换 -->
+            <div class="goods_gl_title">
+                <span>猜你喜欢</span>
+                特惠换购
+            </div>
+            <div class="goods_gl_list">
+                <span> < </span>
+                <ul>
+                    <li>
+                        <img src="./upload/fs7805.gif" alt="" class="gl_list_img">
+                        <!-- 多行就 div -->
+                        <div>
+                            飞科（FLYCO）FS7805鼻毛修剪器
+                            <br>电动鼻毛器 修鼻毛孔
+                        </div>
+                        <!-- 单行文字 p -->
+                        <p>￥25.00</p>
+                        <div class="goods_gl_list_car">
+                            <img src="./upload/car.gif" alt="">
+                            <a href="cart.html">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./upload/fs7805.gif" alt="" class="gl_list_img">
+                        <!-- 多行就 div -->
+                        <div>
+                            飞科（FLYCO）FS7805鼻毛修剪器
+                            <br>电动鼻毛器 修鼻毛孔
+                        </div>
+                        <!-- 单行文字 p -->
+                        <p>￥25.00</p>
+                        <div class="goods_gl_list_car">
+                            <img src="./upload/car.gif" alt="">
+                            <a href="cart.html">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./upload/fs7805.gif" alt="" class="gl_list_img">
+                        <!-- 多行就 div -->
+                        <div>
+                            飞科（FLYCO）FS7805鼻毛修剪器
+                            <br>电动鼻毛器 修鼻毛孔
+                        </div>
+                        <!-- 单行文字 p -->
+                        <p>￥25.00</p>
+                        <div class="goods_gl_list_car">
+                            <img src="./upload/car.gif" alt="">
+                            <a href="cart.html">加入购物车</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./upload/fs7805.gif" alt="" class="gl_list_img">
+                        <!-- 多行就 div -->
+                        <div>
+                            飞科（FLYCO）FS7805鼻毛修剪器
+                            <br>电动鼻毛器 修鼻毛孔
+                        </div>
+                        <!-- 单行文字 p -->
+                        <p>￥25.00</p>
+                        <div class="goods_gl_list_car">
+                            <img src="./upload/car.gif" alt="">
+                            <a href="cart.html">加入购物车</a>
+                        </div>
+                    </li>
+                </ul>
+                <span> > </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+    <div class="footer">
+        <div class="w">
+            <!-- 盒子一：mod_service 服务模块 -->
+            <div class="mod_service">
+                <ul>
+                    <!-- 每个 li 标签里还有两个左右盒子（左右icon，右两行字） -->
+                    <li>
+                        <!-- 正 -->
+                        <i class="mod_service_icon mod_service_zheng"></i>
+                        <div class="mod_service_title">
+                            <h5>正品保障</h5>
+                            <p>正品保障，提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 快 -->
+                        <i class="mod_service_icon mod_service_kuai"></i>
+                        <div class="mod_service_title">
+                            <h5>急速物流</h5>
+                            <p>急速物流，急速送达</p>  
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 保 -->
+                        <i class="mod_service_icon mod_service_bao"></i>
+                        <div class="mod_service_title">
+                            <h5>无忧售后</h5>
+                            <p>7天无理由退换货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 定 -->
+                        <i class="mod_service_icon mod_service_ding"></i>
+                        <div class="mod_service_title">
+                            <h5>特色服务</h5>
+                            <p>私人定制家电套餐</p>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 帮 -->
+                        <i class="mod_service_icon mod_service_bang"></i>
+                        <div class="mod_service_title">
+                            <h5>帮助中心</h5>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 盒子二：mod_help 帮助模块 -->
+            <div class="mod_help">
+                <!-- ul和li 是无序列表的意思。
+                ol和li 是有序列表的意思。
+                dl、dt和dd是普通列表的意思。 -->
+
+                <!-- dl（声明）>dt（标题）+dd（内容） 必须成对出现 -->
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">会员介绍</a></dd>
+                    <dd><a href="#">生活旅行/团购</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">大家电</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+                <dl class="mod_help_item mod_help_img">
+                    <dt>帮助中心</dt>
+                    <dd>
+                        <img src="./upload/QR_Code.png" alt="">
+                        <p>品优购客户端</p>
+                    </dd>
+                </dl>
+            </div>
+
+            <!-- 盒子三：mod_copyright 版权模块 -->
+            <div class="mod_copyright">
+                <p class="mod_copyright_links">
+                    关于我们    |    联系我们    |    联系客服    |    商家入驻    |    营销中心    |
+                        手机品优购    |    友情链接    |    销售联盟    |    
+                        品优购社区    |    品优购公益    |    English Site    |    Contact U
+                </p>
+                <p class="mod_copyright_info">
+                    地址：北京市昌平区建材城西路金燕龙办公楼一层
+                    邮编：100096  电话：400-618-4000  传真：010-82935100
+                    邮箱：zhanghj+itcast.cn
+                    <br>
+                    京ICP备08001421号京公网安备110108007702
+                </p> 
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+</body>
+</html>
