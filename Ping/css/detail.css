@@ -1,0 +1,408 @@
+/* 面包屑导航 */
+.de_container {
+    margin-top: 20px;
+}
+.de_container .crumb_wrap {
+    height: 25px;
+}
+.de_container .crumb_wrap a {
+    margin-right: 10px;
+}
+
+/* 产品介绍区 */
+.product_intro {
+
+}
+/* 左侧预览区 */
+.preview_wrap {
+    width: 400px;
+    height: 590px;
+}
+.preview_wrap .preview_img img{
+    height: 398px;
+    /* width: 398px; */
+    border: 1px solid #ccc;
+}
+
+/* 产品预览略缩图 */
+.preview_list {
+    height: 60px;
+    margin-top: 60px;
+
+    position: relative;
+}
+/* 左右箭头 */
+.preview_list a {
+    height: 32px;
+    width: 22px;
+    position: absolute;
+    top: 15px;
+}
+.preview_list .arrow_prev {
+    left: 0;
+    background: url(../upload/disabled-prev.png) no-repeat;
+}
+.preview_list .arrow_next {
+    right: 0;
+    background: url(../upload/disabled-next.png) no-repeat;
+}
+
+/* 略缩图 */
+.list_item {
+    width: 320px;
+    height: 60px;
+
+    /* 这是一个 ul ，块级元素居中对齐是 margin: 0 auto ，不是 text-align: center */
+    margin: 0 auto;
+}
+/* ul>li */
+.list_item li {
+    float: left;
+    width: 56px;
+    height: 56px;
+    border: 2px solid transparent;
+
+    margin: 0 2px;
+}
+/* 默认选中的图片 */
+.list_item .current {
+    border: 2px solid #c81623;
+}
+/* 鼠标放上边框变红 */
+.list_item li:hover {
+    border: 2px solid #c81623;
+}
+.list_item li img {
+    width: 56px;
+    height: 56px;
+}
+
+
+/* 右侧产品详情区 */
+.itemInfo_wrap {
+    width: 718px;
+}
+/* 一号盒子：头部 */
+.sku_name {
+    /* 这里只写高度，不写垂直居中对齐（行高），就可以让文字和下面的盒子直接产生一个间隔了，就不用写padding/margin了 */
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+}
+/* 二号盒子：新闻 */
+.news {
+    height: 32px;       /* 此处同理，文字高度故意给高点，就不用边距来隔开盒子了 */
+    color: #e12228; 
+}
+/* 三号盒子：详细摘要 */
+.summary {
+    /* 因为这里没给高度，所以要给所有子容器都清除浮动 */
+}
+.summary dl {
+    overflow: hidden;   /* 触发其计算高度 */
+}
+/* 注意这里就不要写 .summary_price 的 dt/dd，而是.summary 中的，这样格式就会一起统一 */
+.summary dt ,
+.summary dd {
+    float: left;
+}
+
+/* 左侧文字dt， */
+.summary dt {
+    width: 60px;
+    /* pl:10 + tab */
+    padding-left: 10px;
+
+    /* 没有给行高但是要水平对齐，所以直接F12量出来，然后写上line-height */
+    line-height: 36px;
+}
+
+/* 价格摘要 + 促销（有背景颜色） */
+.summary_price,
+.summary_promotion {
+    padding: 10px 0;
+    background-color: #fee9eb;
+
+    position: relative;
+}
+/* 1、价格 */
+.price {
+    font-size: 24px;
+    color: #e12228;
+}
+.summary_price a {
+    color: #c81623;
+}
+
+/* 由于 dd 盒子没有给宽度，又是左浮动，所以给其中一个子盒子右浮动是不合适的，他不知道该浮动到哪里 */
+/* 而且右对齐也是不合适的，因为就是没有宽度，无法定位，所以不如直接绝对定位到最右边 */
+/* .summary_price div 累计评价，最右边 */
+.remark{
+    /* po:abs + tab */
+    position: absolute;
+    top: 18px;
+    right: 30px;
+}
+.remark i {
+    color: rgb(52, 161, 205);
+}
+
+/* 2、促销 */
+.summary_promotion {
+    padding-top: 0;
+}
+.summary_promotion dd {
+    width: 450px;
+    line-height: 36px;
+}
+.summary_promotion em {
+    /* 注意，em是行内元素，要转换 */
+    display: inline-block;
+
+    height: 22px;
+    line-height: 22px;
+    width: 45px;
+
+    background-color: #c81623;
+    color: #fff;
+
+    text-align: center;
+}
+.summary_support {
+    line-height: 36px;
+}
+.summary_delivery {
+    line-height: 36px;
+    border-bottom: 1px solid #ccc;
+}
+.summary_delivery i {
+    color: #aaa;
+}
+
+/* 选择颜色 */
+.choose_color {
+    margin-top: 20px;
+}
+.choose_color a{
+    display: inline-block;
+
+    width: 80px;
+    text-align: center;
+    height: 41px;
+    line-height: 41px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #ededed;
+    
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* 选择版本 */
+/* 选择容量 */
+/* 购买方式 */
+/* 套装 */
+/* 四合一！ */
+.choose_version,
+.choose_capacity,
+.choose_type,
+.choose_kit {
+    margin: 10px 0;
+}
+.choose_version a,
+.choose_capacity a,
+.choose_type a,
+.choose_kit a{
+    display: inline-block;
+
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #ededed;
+    text-align: center;
+
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* 将所有 .current 合在一起写 */
+.summary .current {
+    border-color: #c81623;
+}
+.summary dt {
+    margin-right: 10px;
+}
+
+/* 选择按钮组 */
+.choose_btns {
+    margin: 20px 0 0 10px;
+}
+.choose_amount {
+    width: 50px;
+    height: 47px;
+    
+    position: relative;
+}
+.choose_amount input {
+    width: 33px;
+    height: 45px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* 加减链接绝对定位，在input右边上下排列 */
+.add, 
+.reduce {
+    width: 15px;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+
+    position: absolute;
+    right: 0;
+}
+.add {
+    top: 0;
+}
+.reduce {
+    bottom: 0;
+    /* 当reduce到最低值1的时候，不让再点击 */
+    cursor: not-allowed;    /* not-allowed 是一个禁止符，pointer 小手，move 移动 */
+}
+
+/* 加入购物车 */
+.addcar {
+    width: 142px;
+    height: 46px;
+    background-color: #c81623;
+
+    text-align: center;
+    line-height: 46px;
+
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+
+    margin-left: 10px;
+}
+
+.product_detail {
+    margin-top: 20px;
+}
+
+/* 产品详情模块左盒子 aside */
+.aside {
+    width: 208px;
+    border: 1px solid #ccc;
+}
+.tab_list {
+    height: 34px;
+}
+.tab_list li {
+    float: left;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+    height: 33px;
+
+    line-height: 33px;
+    text-align: center;
+    cursor: pointer;
+}
+/* 鼠标点击 li，底色变，边框无，文字变色 */
+.tab_list .current {
+    color: red;
+    background-color: #fff;
+    border-bottom: 0;
+}
+
+/* 注意优先级 */
+.tab_list .first_tab {
+    width: 104px;
+}
+.tab_list .second_tab {
+    width: 103px;
+    border-left: 1px solid #ccc;
+}
+
+.tab_con {
+    padding: 0 10px;
+}
+.tab_con li {
+    border-bottom: 1px solid #ccc;
+}
+.tab_con li img {
+    /* img 行内元素居中对齐 */
+    display: block;
+    margin: 10px auto;
+}
+.tab_con li h5 {
+    /* nowrap：文本不会换行，文本会在在同一行上继续，直到遇到标签为止。 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*  clip：当前对象内文本溢出时不显示省略标记(...)，而是将溢出部分裁剪。
+        ellipsis：当对象内文本一处时显示省略标记(...)。 */
+
+    font-weight: 400;   /* normal */
+}
+.as_price {
+    font-weight: 700;
+    margin: 10px 0;
+}
+.as_addcar {    
+    /* a标签 */
+    display: block;
+
+    width: 88px;
+    height: 26px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+
+    /* 块级元素居中对齐可不是 text-align: center */
+    margin: 10px auto;      /* 是左右 margin auto */
+
+    line-height: 26px;
+    text-align: center;     /* 这只是给其中的文字水平居中 */
+}
+
+/* 产品详情模块右盒子 detail */
+.detail {
+    width: 978px;
+}
+
+.detail_tab_list {
+    height: 39px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.detail_tab_list li {
+    float: left;
+
+    /* 文字宽度 */
+    height: 39px;
+    line-height: 39px;
+    
+    padding: 0 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.detail_tab_list .current {
+    background-color: #c81623;
+    color: #fff;
+}
+
+.detail_tab_con .item{
+    margin: 20px 10px;
+}
+.detail_tab_con .item li {
+    line-height: 22px;
+}
+.detail_tab_con .item p {
+    text-align: right;
+    font-weight: 700;
+}

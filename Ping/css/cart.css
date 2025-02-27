@@ -1,0 +1,405 @@
+.goods {
+    padding-bottom: 30px;
+}
+/* 大标题 */
+.goods h4 {
+    color: black;
+    line-height: 40px;
+}
+
+/* 购物车头部栏 */
+.goods_title {
+    
+}
+.goods_title_tab {
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(245, 245, 245);
+
+    border: 1px solid #ddd;
+}
+.goods_title_tab li {
+    float: left;
+    margin-left: 10px;
+}
+.goods_title_tab input {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* 这里的操作就是通过 margin 来隔开文字并规范出下面详情区域的 */
+.goods_title_tab .all {
+
+}
+.goods_title_tab .good {
+    margin-left: 210px;
+    margin-right: 330px;
+}
+.goods_title_tab .price {
+
+}
+.goods_title_tab .amounts {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.goods_title_tab .tip {
+    margin-right: 80px;
+}
+
+
+.goods_title_price {
+    margin-top: 20px;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+.goods_title_price .czz {
+    float: left;
+    margin: 10px 0 0 10px;
+    height: 22px;
+    line-height: 22px;
+    width: 60px;
+    background-color: #C71523;
+    text-align: center;
+}
+.goods_title_price .czz em{
+    color: #fff;
+    font-weight: 700;
+}
+.goods_title_price .freight {
+    float: right;
+    color: #333;
+}
+.goods_title_price .freight span{
+    margin-left: 5px;
+    color: #C71523;
+}
+
+/* 购物车详细信息 */
+.goods_detail{
+    /* height: 800px; */
+}
+.goods_list{
+    height: 110px;
+    padding: 10px;
+    align-items: center;
+}
+
+.goods_accounts {
+    margin-top: 20px;
+}
+.goods_detail li,
+.goods_change_list li{
+    height: 110px;
+    float: left;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.goods_detail li img ,
+.goods_change_list li img{
+    height: 90px;
+    width: 75px;
+    position: relative;
+    bottom: 10px;           /* 上移 10px */
+}
+
+
+/* 每个 li 标签都分别占整个版心的 % */
+.goods_list_img{
+    width: 9.5%;
+    text-align: center;
+    position: relative;
+}
+.goods_list_img input {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.goods_list_good {
+    width: 28%;
+    color: #000;
+    
+}
+
+.goods_list_info{
+    width: 12.5%;
+    color: #000;    
+}
+
+.goods_list_price,
+.goods_list_tip,
+.goods_list_handle,
+.goods_list_amounts{
+    width: 12.5%;
+    color: #000;    
+    text-align: center;    
+}
+.goods_list_good{
+    margin-top: 17px;
+    box-sizing: border-box;
+}
+.goods_list_price {
+    line-height: 50px;
+    color: rgb(225, 34, 40);
+    font-weight: 700;
+}
+.goods_list_tip {
+    line-height: 50px;
+}
+
+.goods_list_amounts div {
+    height: 54px;
+    margin: auto 0;
+    position: relative;
+}
+.goods_list_amounts input {
+    width: 45px;
+    height: 35px;
+    border: 1px solid #ccc;
+    text-align: center;    
+}
+.goods_list_amounts span {
+    color: #ccc;
+}
+/* 加减链接绝对定位，在input右边上下排列 */
+.add, 
+.reduce {
+    width: 22px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc; 
+    position: absolute;
+}
+.add {
+    right: 29px;
+}
+.reduce {  
+    left: 29px;
+    /* 当reduce到最低值1的时候，不让再点击 */
+    cursor: not-allowed;    /* not-allowed 是一个禁止符，pointer 小手，move 移动 */
+}
+
+.goods_detail .active {
+    background-color: #FDEDEE;
+}
+
+.goods_detail .change{
+    display: inline-block;
+    position: relative;
+    right: 450px;
+    color: black;
+}
+.goods_change_list .change {
+    float: left;
+    color: black;
+    width: 100%;
+}
+
+.goods_detail .change span ,
+.goods_change_list .change span{
+    color: #C81623;
+    margin: 0 20px;
+}
+.goods_detail .change span:last-child ,
+.goods_change_list .change span:last-child{
+    color: #fff;
+    background-color: #C71523;
+    /* font-weight: 700; */
+}
+
+.goods_detail .gift{
+    display: inline-block;
+    color: #ccc;
+    position: relative;
+    right: 360px;
+    
+}
+.goods_change_list .gift {
+    float: left;
+    width: 100%;
+    color: #ccc;
+    padding-left: 90px;
+}
+
+/* 购物车换购 */
+.goods_change {
+    /* 这里没给高度的情况下，下面的 footer 会顶上来，所以要使用 clearfix */
+}
+.goods_change_title {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #ccc;
+
+    padding-left: 20px;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.goods_change_title em {
+    color: #fff;
+    background-color: #c71523;
+    font-weight: 700;
+}
+
+.goods_change_list{
+    height: 193px;
+    width: 100%;
+}
+
+/* 购物车结算 */
+.goods_accounts {
+    height: 70px;
+}
+.goods_accounts .tools li {
+    float: left;
+    padding: 0 10px;
+    line-height: 70px;
+}
+.goods_accounts .pay {
+    width: 475px;
+    height: 100%;
+}
+.goods_accounts .pay .total {
+    width: 335px;
+    height: 100%;
+    text-align: right;
+    color: #333;
+}
+.goods_accounts .pay .total .up {
+    width: 335px;
+    height: 35%;
+}
+.goods_accounts .pay .total .up i {
+    color: #c81623;
+    font-size: 16px;
+}
+.goods_accounts .pay .total .up em {
+    font-weight: 700;
+}
+
+.goods_accounts .pay .total .down {
+    padding-right: 40px;
+    width: 335px;
+    height: 65%;
+}
+
+.goods_accounts .pay .purchase {
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    width: 110px;
+    background-color: #e60012;
+    margin-left: 30px;
+}
+.goods_accounts .pay .purchase a {
+    color: #fff;
+}
+
+/* 购物车重新加入失效商品 */
+.goods_rejoin {
+
+}
+.goods_rejoin_delete {
+    height: 60px;
+    line-height: 30px;
+    background-color: #FDEDEE;;
+    margin-top: 25px;
+}
+.goods_rejoin_delete li{
+    float: left;
+    color: #ccc;
+}
+.goods_rejoin_delete li:nth-of-type(1) {
+    margin-left: 15px;
+    margin-right: 345px;
+}
+.goods_rejoin_delete li:nth-of-type(3) {
+    margin-left: 155px;
+    margin-right: 260px;
+}
+.goods_rejoin_delete li:nth-of-type(4) {
+    margin-right: 20px;
+}
+
+/* 购物车猜你喜欢 */
+.goods_guesslike {
+    height: 386px;
+}
+.goods_gl_title {
+    height: 40px;
+    line-height: 40px;
+    background-color: #f1f1f1;
+    margin-top: 25px;
+}
+.goods_gl_title span {
+    background-color: #c71523;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.goods_gl_list {
+    position: relative;
+    margin-top: 20px;
+}
+
+.goods_gl_list ul {
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.goods_gl_list li {
+    float: left;
+    height: 300px;
+    width: 240px;
+    text-align: center;
+
+    border: 1px dashed black;
+    box-sizing: border-box;
+}
+.goods_gl_list li .gl_list_img {
+    padding-top: 20px;
+}
+.goods_gl_list li p {
+    color: #C81623;
+}   
+
+
+.goods_gl_list span {
+    /* display: inline-block; */
+    /* 不用这么整，加绝对定位就行 */
+
+    height: 50px;
+    width: 20px;
+    line-height: 50px;
+    text-align: center;
+
+    color: #fff;
+    background-color: #ccc;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+}
+.goods_gl_list span:last-child {
+    right: 0;
+}
+
+.goods_gl_list_car {
+    height: 26px;
+    width: 123px;
+    text-align: center;
+    border: 1px solid black;
+
+    display: inline-block;
+    margin-top: 5px;
+    /* vertical-align: middle; */
+}

@@ -1,0 +1,465 @@
+/* 公共样式 */
+.fl {
+    float: left;        /* 带上此标签则左浮动 */
+}
+.fr {
+    float: right;       /* 带上此标签则右浮动 */
+}
+
+/* 版心 */
+.w {                    /* 带上此标签则居中在版心设置位置 */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 红色文字样式 */
+.style-red {
+    color: #c81623;
+}
+
+/* 字体图标 */
+/* 注意路径 */
+@font-face {
+    font-family:'icomoon';
+    src: url('../fonts/icomoon.eot?7kkyc2');
+    src: url('../fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?7kkyc2') format('truetype'),
+    url('../fonts/icomoon.woff?7kkyc2') format('woff'),
+    url('../fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* font-family：指定元素的字体系列 */
+.iconfont{
+    font-family: 'icomoon';  
+}
+
+/* 顶部快捷导航 start */
+.shortcut{
+    height: 31px;
+    background-color: #f1f1f1;
+    line-height: 31px;
+}
+.downArrow{
+    font-size: 16px;            /* 这样会把文字撑下，所以要重置行高 */
+    line-height: 26px;          /* 行高偏小（相对于父模板），文字偏上，反之偏下 */
+}
+/* 顶部快捷导航中的 li 标签浮动设置 */
+.shortcut li{
+    float: left;
+}
+/* 分割线 margin */
+.shortcut .fr span{
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 0 12px;
+    /* 继承 .shortcut 而默认上下居中 */
+}
+/* 顶部快捷导航 end */
+
+
+/* header start */
+.header{
+    height: 105px;
+    position: relative;
+}
+
+/* header box 1 */
+.logo{
+    /* 第一个盒子绝对定位 */
+    position: absolute;         /* 相对父元素绝对定位 */
+    top: 25px;
+    left: 0;
+
+    width: 175px;
+    height: 56px;   
+}
+.logo a {
+    /* 链接 a 元素，在默认情况下是是“行内元素”，因此对a元素设置高度、宽度等属性，都是无效的。
+    而比如div，p，li，img等默认情况下的display属性值就是“block”。
+    所以对于链接a来说只能：display:block; 强制将它改成块元素 */
+    display: block;
+    width: 175px;
+    height: 56px;
+
+    /* logo h1 中放的链接图片（背景图） */
+    background: url(../img/logo.png) no-repeat;
+
+    /* 文字直接不显示法 */
+    font-size: 0;
+    
+    /* 缩进不显示法 */
+    text-indent: -999px;  /* 直接挪出盒子，然后加一个溢出隐藏，简简蛋蛋 */
+    overflow: hidden;
+}
+
+/* header box 2 */
+.search {
+    position: absolute;
+    top: 25px;
+    left: 348px;
+}
+.search .text {
+    width: 455px;
+    height: 32px;
+    border: 2px solid #b1191a;
+
+    /* input placeholder */
+    /* 开头缩进 */
+    text-indent: 1em;
+    /* padding-left: 10px; 也可以，但要加上怪异盒 */
+    color: #ccc;
+
+    /* padding 会撑开盒子 */
+    /* box-sizing: border-box; */
+
+    float: left;
+
+    /* 搜索框点击后默认有一个 margin ，需要清除，写在 base.css 中 */
+    /* outline: none; CSS设置 outline:none 时，outline-color、outline-style、outline-width 都会无效，
+    即元素轮廓的颜色、元素轮廓的格式、元素轮廓的宽度都无效，即达到不显示元素轮廓的效果。 */
+}
+.search .btn {
+    width: 82px;
+    height: 36px;
+    background-color: #b1191a;
+
+    /* 清除搜索按钮的默认边框 */
+    border: 0;
+    /* 但这样之后搜索框和按钮间会出现空隙，所以要用浮动来清除 */
+    float: left;    /* 相对于 search 来浮动的，所以 input 也要加浮动，不然 btn 就会跑到 search 的最左边 */
+
+    font-size: 16px;
+    color: #fff;
+}
+
+/* header box 3 */
+.hotwords{
+    position: absolute;
+    top: 65px;
+    left: 348px;
+}
+.hotwords a {
+    margin: 0 5px;
+}
+
+/* header box 4 */
+.shopcar {
+    position: absolute;
+    top: 25px;
+    right: 64px;            /* 根据右边来对齐 */
+
+    /* w138px + tab */
+    width: 138px;
+    height: 34px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+
+    line-height: 34px;      /* 因为这个 div 有文字所以还需要设置行高来对齐（小一点让文字往上一点） */
+
+    /* 字体图标居中对齐 */
+    text-align: center;
+}
+
+/* 字体图标 */
+.cart {
+    margin-right: 5px;
+    color: #da5555;
+}
+.rightArrow {
+    margin-left: 5px;
+}
+.count {
+    position: absolute;
+    top: -5px;
+    /* 注意这里，虽然字标在右边，但应该左侧对齐，因为左侧对齐后在文字宽度增加时才能向右移动 */
+    left: 100px;
+
+    /* i 本来是内联元素，加上绝对定位则会变成行内块元素（加浮动也可以转） */
+    /* 行内块元素相比于行内元素最大的区别就是可以设置宽高了（可以多个行内块在一行），且默认宽度还是内容本身的宽度 */
+
+    background-color: #e60012;
+    height: 14px;           /* 别给宽度，会撑开 */
+    line-height: 14px;      /* 字体图标 */
+
+    padding: 0 3px;       
+    
+    /* 气泡效果 */
+    /* border-radius: 左上角 右上角 右下角 左下角（直角0） */
+    border-radius: 7px 7px 7px 0;
+}
+/* header end */
+
+
+/* nav start */
+.nav {
+    height: 45px;
+    border-bottom: 2px solid #b1191a;   /* 底边框，距离div顶45px，宽度是在 .w 中设置好的 */
+}
+
+/* 左盒子 */
+.dropdown {
+    width: 215px;
+    height: 45px;
+}
+/* 左导航 */
+.dropdown .dt{
+    width: 100%;    /* 占满父级容器dropdown的整个宽高 209px 45px */
+    height: 100%;   
+    background-color: #b1191a;
+
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* 左导航下拉栏 */
+.dropdown .dt .dd {
+    /* 默认不显示嗷 */
+    /* 也可以通过设置高度来设置显示行为 */
+    /* display: none; */
+
+    /* 宽度可以直接不给，默认继承 .dropdown */
+    /* height: 0; */
+    overflow: hidden;
+
+    background-color: #c81623;
+
+    /* 因为导航标题还有一个2px的下拉框，所以要往下挪2像素 */
+    margin-top: 2px;
+}
+
+.dropdown .dt:hover> .dd{
+    height: 465px;
+    z-index: 1;
+}
+
+/* 下拉栏中的每一块小标题 */
+.menu_item{
+    height: 31px;
+    line-height: 31px;  /* 文字对齐 */
+
+    /* 这里设置的原因是，如果鼠标放上去小标题背景变白色了，就会和大背景融合了，看起来就像有一个截断空白，所以要空出1px */
+    margin-left: 1px;
+    padding: 0 5px;
+    /* box-sizing: border-box; 注意，在没有设置宽度 width 的情况下 padding 不会撑开盒子，所以不用怪异盒模型 */
+    color: #fff;
+
+    text-align: left;
+    font-size: 12px;
+
+    /* 缓慢过渡 */
+    transition: all .2s linear;
+}
+
+/* 设置过度效果，鼠标移动上去后文字向右移动 */
+.menu_item:hover {
+    padding: 0 20px;
+}
+
+.menu_item a{
+    color: #fff;        /* a 标签还需单独设置一次颜色 */
+
+    /* 再次注意，a 标签作为内联元素，不可设置宽高，先转块级元素 */
+    /* 但这里又不能转，因为每一行里不止一个 a 标签 */
+    /* font-size: 14px; */
+}
+/* 右小箭头 */
+.smallRightArrow {
+    float: right;
+    /* padding-right: 10px; 这里写在父元素里，左右各10px的空隙 */
+    font-size: 18px;
+}
+
+/* 鼠标放上去背景辩白，右箭头消失 */
+.menu_item:hover{
+    background-color: #fff;
+    color: #c81623;
+}
+.menu_item:hover a{
+    color: #c81623;
+}
+.menu_item:hover .smallRightArrow{
+    display: none;
+}
+
+/* 右盒子 */
+.navitems {
+    margin-left: 10px;
+}
+.navitems li {  
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    /* 但注意不要设置宽度，因为每一个li标签中的字数是不一样的，默认从左到右撑开就行 */
+
+    padding: 0 25px;
+    font-size: 16px;
+
+}
+.navitems li a{
+    /* 转块级元素来设置高 */
+    /* 这里的height可以不用设置，第一因为height已经继承了父容器.nav的height，第二这里没有设置a为block，height也不会生效 */
+    height: 45px;
+
+    /* 发现字体也可以在 li 中直接设置，所以只要不涉及到链接文字颜色的设置，都用不上专门给 a 设置 */
+}
+/* nav end */
+
+
+/* footer start */
+.footer {
+    height: 416px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+}
+/* 盒子一 */
+.mod_service{
+    height: 79px;
+    border-bottom: 1px solid #ccc;
+}
+.mod_service li{
+    width: 240px;
+    /* 高度继承（可以写） */
+    float: left;
+    padding-left: 35px;
+    box-sizing: border-box;
+}
+.mod_service_icon {
+    /* i 是内联元素，所以需要转换 block，但浮动的盒子是可以直接设置宽高的*/
+    /* display: block; */
+
+    /* 注意，给块或者内联元素使用浮动，都会转换为行内块元素 */
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../img/icons.png) no-repeat 
+}
+/* 正 */
+.mod_service_zheng {
+    background-position: -253px -2px;    /* 注意这里的 icon.png 是一个包含了所有背景图标的图片，所以要定位 */
+    /* no-repeat（图片保留自身大小不平铺）、repeat-x（图片在水平方向上平铺）、repeat-y（图片在垂直方向上平铺） */
+    /* 至于这里为什么是负的呢？因为这里相当于是 x 如何移动，y 如何移动（x向左，y向上移动，默认定位图片左上角，就是对应的 icon） */
+
+
+    /* img 和 i 背景图片的区别 */
+    /* 1 对容器的要求
+虽然两种方式都能显示图片，但日常开发中，img标签即便在不设置宽高的情况下，依然可以将图片渲染出来，只不过我们为了更完美的布局，为其设置一定的显示区域。
+而background背景图片更依托于DOM元素，如果元素是行内元素，或者未设置宽高，图片则不能被渲染出来。
+
+另外，img标签的宽高设置可以直接改变图片的显示大小，但background背景属性则需要依赖更多的CSS属性设置。
+但属性复杂也为我们的网页渲染带来了更多的效果，例如background-size可以设置图片的尺寸，或者相对于自身DOM元素的宽高适应情况；
+例如background-repeat可以设置图片是否平铺渲染；例如background-position可以设置图片的渲染坐标等，这些功能都是img标签所不具备的，
+这也使得background这个CSS复合属性具有更加灵活的功能，在网页开发中，更加灵活可用的功能，不正是我们所需要的嘛。
+
+2 对页面渲染的影响
+img标签属于DOM元素，而background这个CSS属性最终会做为CSS文件，嵌入网页中。
+
+我们知道网页的渲染，是DOM树和CSS样式的结合，
+所以，如果使用img标签来渲染图片的话，很显然，不需要等待CSS的加载，浏览器从上到下解析到img标签的时候，再请求图片即可完成这项任务；
+
+但如果是background背景图片的话，则需要先下载CSS文件，然后浏览器解析CSS文件，而后找到对应的图片链接，再请求图片，
+还要做CSS样式与DOM元素的对接，从而完成这项任务。
+
+这样看来，使用background背景图片的方式，比直接使用img标签渲染图片过程要复杂的多。尤其是遇到弱网情况，使用img标签来加载图片要更有优势。
+
+3 不希望用户轻松获取图片
+使用background背景渲染的图片，却无法将图片用鼠标拖动到桌面。
+这样就可以为我们的网页图片做一种保护手段，来决定是否可以让用户轻松获取图片。
+但这恐怕只能做为一种针对外行人员的保护手段，因为我们知道，通过F12打开浏览器的控制台，还是可以看到图片链接的。
+
+4 对SEO的影响
+如果你想对网页做图片SEO优化，background背景图片做为一种样式，属于后期动态与DOM树结合起来渲染到网页中的图片，并不能被搜索引擎抓取到。
+搜索引擎更喜欢在网页初始化的时候，img标签与src的链接一起被加载出来。
+这样看来，在SEO优化层面，img标签会比background背景图片更有优势，同时img标签加载图片的方式也更符合HTML语义化标准。
+
+5 样式与数据的区分
+当做为样式的时候，更建议使用background背景图片的方式，例如常见的小图标、弹框背景图、按钮背景装饰图、登录页背景图等，
+这些图片都是为了起到一定的装饰作用，为了锦上添花；
+
+而做为数据的时候，更建议使用img标签的方式，例如logo、轮播图、商品封面、广告图片等，
+这些图片都占有非常重要的地位，用户可以根据这种图片第一眼感知到商家想要表达的意思，
+所以这种图片更是以一种数据元素出现的，而非装饰元素。*/
+
+    /* margin-left: 35px; */
+    /* 这里写到父容器里去了，变成 padding-left 一样的效果 */
+}
+.mod_service_title {
+    /* 右侧文字和左侧icon间隔5px */
+    float: left;
+    /* 注意，这里如果不浮动，就会出现一个文字环绕背景图片的情况，这里设置margin多少都不会生效，所以要把文字模块也浮动起来，
+    才可以设置 icon 模块和文字模块之间的距离 */
+    margin-left: 5px;
+}
+/* h5标题 */
+.mod_service_title h5{
+    margin: 5px 0;  /* 上下5，左右0 */
+}
+/* 快 */
+.mod_service_kuai {
+    background-position: -255px -53px;
+}
+/* 保 */
+.mod_service_bao {
+    background-position: -257px -105px;
+}
+/* 定 */
+.mod_service_ding {
+    background-position: -257px -157px;
+}
+/* 帮 */
+.mod_service_bang {
+    background-position: -256px -209px;
+}
+
+/* 盒子二 */
+.mod_help{
+    height: 187px;
+    border-bottom: 1px solid #ccc;
+}
+/* 购物指南模块 */
+.mod_help_item{
+    width: 200px;
+    padding: 20px 0 0 45px;     /* 上、右、下、左 */
+    box-sizing: border-box;
+    float: left;
+}
+/* 普通列表 dl 标题 dt */
+.mod_help_item dt {
+    height: 25px;
+    font-size: 16px;
+}
+/* dl 内容 dd */
+.mod_help_item dd {
+    height: 22px;
+}
+.mod_help_img {
+    padding: 20px 0 0 20px;     /* 上、右、下、左 */
+    box-sizing: border-box;
+}
+.mod_help_img dt{
+    padding-left: 15px;
+}
+.mod_help_img p{
+    padding-left: 8px;
+}
+.mod_help_img img {
+    height: 100px;
+    width: 100px;
+    margin: 5px 0;
+}
+
+/* 盒子三 */
+.mod_copyright{
+    text-align: center;
+}
+.mod_copyright_links {
+    margin: 20px 0 15px 0;
+}
+.mod_copyright_info {
+    line-height: 22px;
+}
+/* footer end */
+/* 写完底部 common.css 也就完成了全部编写 */

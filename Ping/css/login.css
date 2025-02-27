@@ -1,0 +1,167 @@
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 头部 */
+.header {
+    height: 82px;
+    /* border-bottom: 1px solid #b1191a; */
+}
+.logo img{
+    margin-top: 12px;
+}
+
+/* login 注册 */
+.login {
+    height: 500px;
+    background-color: rgb(126, 0, 255);
+}
+/* 背景图片 */
+.login_img {
+    height: 500px;
+    background: url(../img/loginbg.png) no-repeat;
+
+    position: relative;
+}
+/* 登录框 */
+.login_list {
+    position: absolute;
+    top: 120px;
+    right: 60px;
+
+    height: 310px;
+    width: 350px;
+
+    background-color: #fff;
+}
+
+/* tab 栏 */
+.tab_list {
+    height: 41px;
+    width: 350px;
+}
+.tab_list li {
+    float: left;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    font-size: 18px;
+
+    color: rgb(102, 102, 102);
+    background-color: rgb(252, 252, 252);
+}
+.tab_list .login_scan {
+    width: 174px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.tab_list .login_user {
+    width: 175px;
+    color: rgb(200, 17, 26);
+    background-color:  #fff;
+}
+
+
+
+/* 登录信息 */
+.tab_con {
+    background-color: #fff;
+    padding-top: 20px;
+}
+.tab_con li {
+    /* float: left; */
+    /* display: inline-block; */
+    margin-bottom: 5px;  
+    margin-left: 15px;
+}
+.tab_con .inp {
+    font-size: 0;
+}
+.tab_con .inp input {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 275px;
+    height: 31px;
+    line-height: 31px;
+
+    outline: none;
+    border: 1px solid #ccc;
+
+    padding-left: 7px;
+    margin: 0;
+}
+.tab_con li img {
+    height: 32px;
+    width: 36px;
+}
+
+/* 自动登录 */
+.tab_con .agree {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.tab_con .agree input {
+    vertical-align: middle;
+}
+.tab_con .agree a {
+    /* display: inline-block; */
+    float: right;
+    margin-right: 20px;
+}
+
+/* 登录 */
+.loging {
+    width: 312px;
+    height: 35px;
+    line-height: 35px;
+
+    background-color:  rgb(200, 22, 35);
+    margin: 20px auto 10px;
+    font-size: 18px;
+    text-align: center;
+
+    color: #fff;
+    font-weight: 700;
+}
+
+.register {
+    height: 25px;
+    width: 312px;
+
+    margin-top: 20px;
+}
+.register_icon {
+    display: inline-block;
+    vertical-align: middle;
+
+    height: 50px;
+    line-height: 50px;
+    
+    width: 220px;
+    background: url(../img/regetype.png) no-repeat;
+    background-size: 100% 100%;
+}
+.register a{
+
+    line-height: 45px;
+    color: rgb(40, 163, 239);
+    float: right;
+}
+
+/* 尾部 */
+.footer {
+    height: 120px;
+    padding-top: 30px;
+}
+/* 盒子三 */
+.mod_copyright{
+    text-align: center;
+}
+.mod_copyright_links {
+    margin: 10px 0 15px 0;
+}
+.mod_copyright_info {
+    line-height: 22px;
+}

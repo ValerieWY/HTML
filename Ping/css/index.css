@@ -1,0 +1,425 @@
+/* 首页样式 */
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 219px;
+    margin-top: 10px;
+}
+
+
+/* main start */
+.focus {
+    width: 720px;
+    height: 455px;
+    position: relative;
+}
+.focus img {
+    width: 720px;
+    height: 455px;
+}
+
+/* 轮播图的左右切换按钮需要定位覆盖在轮播图上 */
+.focus .arrow-left,.arrow-right{
+    /* 行内元素 a 给浮动后变行内块，可以给大小 */
+    position: absolute;         /* 父 相对 */
+    top: 50%;               /* 向下移动到父元素的50% */
+    margin-top: -20px;      /* 在往上走自己的一半调整偏差 */
+
+    height: 40px;
+    width: 24px;
+    background: rgba(0,0,0,.3);     /* 黑的0.3半透明效果 */
+
+    /* text-align: center;     水平居中 */
+    line-height: 40px;      /* 垂直居中 */
+    color: #fff;
+    font-size: 18px;
+}
+.focus .arrow-right {
+    right: 0;           /* 右箭头在 .focus 最右边 */
+} 
+.focus .arrow-left {
+    /* 右箭头旋转180度变左箭头 */
+    transform: rotate(180deg);
+    
+    /* 但注意这里要确保标签已转为行内块元素才能旋转 */
+    /* 这里在删除 absolute 属性后发现 height、width、top 都设置不了了，
+    说明绝对定位使 a 标签变成了行内块元素，从而可以设置大小，也可以设置图标旋转了 */
+}
+/* 轮播图选择圆圈大致位置 */
+.focus .circle{
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+
+/* 圆圈模样 */
+.circle li{
+    float: left;        /* li 不浮动到不了一行嗷 */
+
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+
+    /* 缩写 bgc */
+    /* background-color: #fff; */
+
+    /* 变圆 */
+    border-radius: 50%;
+    /* 半透明白框空心效果，放上去再白实心 */
+    border: 2px solid rgba(255,255,255,0.6);
+
+    /* 鼠标经过显示小手效果 */
+    cursor: pointer;                /* 模拟链接效果 */
+}
+.circle li:hover {
+    background-color: #fff;
+}
+
+/* 右侧新闻快报 */
+.newsflash {
+    width: 250px;
+    height: 455px;
+}
+/* 盒子一：news 新闻模块 */
+.news {
+    height: 163px;
+    border: 1px solid #ccc;
+}
+.news_hd {
+    height: 32px;
+    border-bottom: 1px dotted #ccc;     /* dotted 点线 */
+    /* dashed 虚线 */
+
+    /* 修饰新闻标题文字 */
+    font-size: 14px;
+    line-height: 32px;
+    padding-left: 15px;     /* 没宽度就不用担心撑开盒子 */
+}   
+.news_hd a {
+    float: right;       
+    padding: 0 15px;
+    font-size: 12px;        /* float 后可以设置大小 */
+}
+.news_bd {
+    padding: 8px 0 0 12px;
+}
+.news_bd li {
+    height: 24px;
+}
+
+/* 盒子二：lifeservice 生活服务模块 */
+.lifeservice {
+    height: 208px;
+
+    /* 盒子二的上边框就是盒子一下边框，所以别给上边框 */
+    border: 1px solid #ccc;
+    border-top: 0;      /* 0 和 none 都可以 */
+
+    /* 然后一 hidden 解决每行最后一个 li 的右边框露出的问题 */
+    overflow: hidden;
+    /* 虽然最后一个盒子会小一点，但样式看起来很整齐更重要 */
+}
+
+/* 这里的 li 其实会撑开 ul，所以要给 ul 单独设置一个宽度，稍微超出父容器的宽度，就可以在一行内放下四个 li */
+.lifeservice ul {
+    width: 252px; 
+}
+.lifeservice li {
+    float: left;
+
+    width: 62px;
+    height: 70px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    position: relative;
+
+    /* 这里虽然有要求垂直和水平居中，但如果使用了flex 弹性盒子，会导致 a 元素的宽度缩减 */
+/* 
+    display: flex;
+    justify-content: center;         根据内容左右居中 
+    align-items: center;             根据内容垂直居中   */
+
+    /* 如果在 li 中用弹性盒子，会缩减 a 链接的宽度为 i 和 p 标签的最大宽度，高度还是原 li 高度。
+    因为弹性盒子是根据子元素来调整布局的，而 a 的高度设置的是 li 的 100%，所以flex后高度也不变。 */
+}
+.lifeservice li a{
+    display: block;    /* a 标签转块元素 */
+    /* 转为块元素后 a 会自动继承 li 的 width 属性，62*0 */
+    /* 同为块级元素：子元素默认width是100%，所以会继承父元素的宽度；但是不会继承其高度，可以通过内容把高度撑起来； 
+    
+    就这么理解，li和a都是块元素了，而块元素都是默认占一行的，而且他们是父子关系，那不肯定要继承宽度吗？
+
+    */
+    height: 100%;               /* 高度也占满父容器，意思就是整个 li 标签就是一个大 a 链接  */
+    /* display: flex;
+    justify-content: center;      
+    align-items: center;  */
+
+    /* 而这种需求，在 a 中使用弹性盒子也是不行的，因为 a 本身就是一个行内元素，需要转为 block 才有宽高。
+    这时候给一个 flex 而不是 block ，首先会有冲突设置，其次 a 就没有大小了，里面的元素都不会显示出来，更有问题。 */
+
+    overflow: hidden;
+    /* 父级元素内部有子元素，如果给子元素添加margin-top样式，那么父级元素也会跟着下来，造成外边距塌陷。
+    因此，给父级元素添加overflow:hidden，就可以解决这个问题了。 */
+
+}
+/* 图标位置居中 */
+.service_ico{
+    display: block;     /* i 标签是行内元素，先转再设置大小 */
+    width: 24px;
+    height: 24px;
+
+    margin: 10px auto;          /* 因为这里设置了 width ，又有 margin ，所以 a 被撑大位移了 */
+    /* 注意这里用的是 margin ，所以也用不了怪异盒，而且不能改成 padding ，因为 i 中根本没有内容物， padding 根本不知道该相对于谁定位 */
+
+    /* i 和 a 都被设置为了块元素，且是包含的关系，这时候给 i 设置 margin 就会出现外边距塌陷/合并的问题，
+    此时就需要在 a 标签里设置 hidden 来解决 */
+
+    /* 子元素的上外边距大于父元素的上外边距，导致边距折叠，取两者之间最大值，即子元素外边距，导致父元素上外边距失效。*/
+    /*  子盒子加magin-top就会照成两个盒子一起往下移动，而不是子盒子相对父盒子向下移动。 */
+
+    background: url(../img/icons.png) no-repeat;
+
+}
+
+/* 针对每一个小方块设置图标位置 */
+.service_ico_hf {
+    background-position: -17px -16px;
+}   
+.service_ico_fj {
+    width: 26px;
+    height: 25px;
+    background-position: -79px -16px;
+}
+.service_ico_jp {
+    width: 27px;
+    height: 26px;
+    background-position: -140px -16px;
+}
+
+/* 文字位置居中 */ 
+.lifeservice li a p{
+    text-align: center;
+}
+.jian {
+    position: absolute;         /* 相对于 li 标签绝对定位 */
+    right: 0;
+    top: 0;
+    width: 12px;
+    height: 15px;
+
+    background: url(../img/jian.png);
+    background-size: cover;
+    /* 当图片大小和容器的 width、height 不相同的时候，设置 bgs（100% 100% 或者 cover）*/
+}
+
+/* 盒子三：bargin 特价商品 */
+.bargin {
+    height: 75px;
+    margin-top: 5px;
+}
+
+
+/* recommend 推荐模块  */
+.recommend {
+    height: 163px;
+    margin-top: 10px;
+}
+.recom_hd {
+    width: 200px;
+    height: 163px;
+    background-color: #5c5251;
+
+    text-align: center;
+}
+.recom_hd img {
+    padding: 30px 0 10px 0;
+}
+.recom_hd h3 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: normal;    /* h3 不加粗 */
+}
+
+.recom_bd {
+    width: 1000px;
+    height: 163px;
+    background-color: #ebebeb;
+}
+.recom_bd li {
+    float: left;
+
+    width: 249px;
+    border-right: 1px solid #ccc;      /* 右边的竖线 */
+    height: 145px;                       /* 这里设置高度和父容器不一样的原因也是因为右边框形成的竖线不是沾满整个容器的，所以刚好通过设置内容器的高度来设置分割线的高度 */
+
+    margin-top: 10px;
+}
+.recom_bd li:last-child {
+    border-right: none; 
+}
+
+/* main end */
+
+
+/* floor start */
+/* .floor{
+    这里也不用写样式了，因为整个楼层除了居中 w 之外不需要别的样式
+} */
+
+/* 直接写公共盒子样式 */
+.box_hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+    margin-top: 25px;
+}
+.box_hd h3 {
+    font-size: 18px;
+    color: #c81623;
+}
+.box_hd .tab_list {
+    line-height: 30px;      /* 文字行居中对齐 */
+}
+/* 注意是 li 浮动而不是 a 浮动，因为 | 在 a 外面，| 也要浮动 */
+.tab_list li {
+    float: left;
+}
+.tab_list li a {
+    margin: 0 15px;
+}
+
+
+/* 浮动导致元素已不在普通流中，所以在排列布局的时候文档中的普通流表现的和浮动元素不存在一样，
+当浮动元素的高度超出包含框的时候，会出现包含框不会自动撑高来包裹浮动元素，即所谓的“高度塌陷”。 */
+
+/* 在一个盒子内，不浮动就都不浮动，要浮动就都浮动。 */
+
+/* 清除浮动主要就是为了解决父级元素因为子元素浮动而引起内部高度为0的问题，
+清除浮动后，父级就会根据浮动的盒子自动检测高度，父级有了高度，就不会影响下面的标准流了。 */
+
+/* 清除浮动主要就是为了解决父级元素因为子元素浮动而引起内部高度为0的问题，
+如果一个元素里只有浮动元素，那它的高度会是0。如果你想要它自适应即包含所有浮动元素，
+那你需要清除它的子元素。一种方法叫做clearfix，即clear一个不浮动的 ::after伪元素。 */
+
+/* 也就是说如果一个父容器本身没有高度，全靠子容器撑开，而子容器又都是浮动元素的话，
+那么父容器就没有高度了，就跑到子容器最顶上去了（直接变成顶部的一条高度为0的线），不是包含关系了。 */
+
+/* 浮动元素排版超出了其父级元素（.topDiv），父元素的高度出现了塌缩，若没有文字高度的支撑，不考虑边框，父级元素高度会塌缩成零。 */
+
+.box_bd {
+    /* 虽然整个楼层模块是没有高的，但每个楼层子模块还是得有高，要不会出现清除浮动的问题 */
+    /* base.css 中已经写了 .clearfix:after 清除浮动了 */
+    height: 361px;
+
+}
+
+/* 一行5个li：209 329 219 219 219 */
+/* 直接通过类来设定五个li的不同宽度！ */
+.w209 {
+    width: 209px;
+}
+.w329 {
+    width: 329px;
+    position: relative;
+}
+.w219 {
+    width: 219px;
+    border-right: 1px solid #ccc;
+}
+.w220 {
+    width: 220px;
+    border-right: 1px solid #ccc;
+}
+
+.box_bd {
+    /* 防止过渡效果超出边框 */
+    overflow: hidden;
+}
+
+
+.tab_con li{
+    height: 361px;
+    float: left;
+}
+
+/* 轮播图切换图片的小圆圈位置 */
+.tab_con .circle {
+    position: absolute;
+    bottom: 10px;
+    left: 135px;
+}
+.tab_con .circle li {
+    float: left;
+    height: 8px;
+} 
+
+/* 盒子一 */
+.tab_con_list {
+    margin-bottom: 15px;
+    overflow: hidden;       /* 清除浮动 */
+    /* 注意，这里不给高度会导致浮动问题，父元素（.tab_con_list）高度为0，margin-bottom 也会无效 */
+}
+.tab_con_list li{
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+
+    border-bottom: 1px solid #ccc;
+    margin-left: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* 盒子三、五的 div 部分 */
+.tab_con_item img{
+    border-bottom: 1px solid #ccc ;
+}
+
+/* 盒子二图片的滚动效果 */
+.box_bd img{
+    transition: all .2s linear;
+}
+.box_bd img:hover {
+    margin-left: 8px;   
+}
+
+/* floor end */
+
+/* 固定电梯侧边栏 start */
+.fixedtool {
+    /* 固定定位 */
+    position: fixed;
+    top: 100px;
+
+    /* 向右走浏览器的 50% ，然后向左走版心的 50%（600），再左走自己的宽度（66px），再恰好在版心左侧 
+    为了美观再空 10px ,676*/
+    left: 50%;
+    margin-left: -676px;   
+
+    width: 66px;
+}
+.fixedtool li {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;    
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+
+    /* 又需要告诉用户可以点击，又不跳转页面 */
+    cursor: pointer;
+}
+.fixedtool .current{
+    background-color: #c81623;
+    color: #fff;
+}
+/* 固定电梯侧边栏 end */
+
+
+/* transition：要过渡的属性、花费时间、运动曲线(默认 ease 逐渐慢下来)、何时开始（鼠标放上去/挪开后几秒执行）
+transition：width(一般都写 all ，变更所有属性) 1s ease 0s , height 1s linear 0s(省略); */
+
+/* 记住，不要在一个样式中写两个 transition，后面的会覆盖掉前面的，要写两个过渡属性就加逗号。
+且过渡效果要写到本身上，而非 hover 中。  */
