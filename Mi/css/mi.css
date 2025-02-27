@@ -1,0 +1,874 @@
+/* 顶部广告 start */
+.header {
+    /* 这里设置 100% 意为填充父容器的宽高都是100% */
+    width: 100%;        /* 宽度充满全屏 */
+    height: 120px;      /* 注意这里是给定的 */
+    overflow: hidden;   /* 当图片大小超出模块大小时，就需要使用到 overflow 属性来规范超出部分的显示，hidden指的是隐藏掉超出的部分 */
+
+    /* 注意，当在子元素里加了position定位属性的时候，父级容器也要添加上以规范子元素的位置，
+    因为子元素毕竟是相对父级容器进行定位的 */
+    position: relative; /* 相当于规范了img的绝对定位是相对于header来调整的 */
+
+}
+/* 处理模块只能改变图片显示的大致范围而不能具体改变图片样式 */
+/* 所以还需单独处理图片 */
+.header img{
+    /* 要求，图片居中渲染 */
+    height: 120px;  /* 图片和容器高度保持一致，便于充满容器 */
+    width: 100%;
+    
+    /* 图片居中：定位 + 移动 */
+    position: absolute;             /* 定位 */
+    left: 50%;                      /* 距离左边有屏幕的一半 */
+
+    transform: translateX(-50%);    /* 移动 */
+
+    /* 简单来说，transform 直接改变元素本身的视觉效果，是脱离文档流的，不考虑容器什么的位置，所以性能也比较高
+    而left是改变元素在容器里的绝对或者相对位置，是基于文档流的且是真实发生改变的，所以性能较低
+    那么这两个配合就能实现元素的居中，left改变实际位置定位到屏幕中线上，然后transform让元素自己的左边50%移动过中线，就实现了居中 */
+
+
+    /* 面试常见的css问题：
+            内容居中问题：一个大盒子中有个小盒子，如何让小盒子在大盒子中垂直和水平居中?
+                1、弹性盒子模型（最推荐）
+                2、定位
+                3、表格（不推荐）
+    */
+}
+
+/* 顶部广告 end */
+
+
+
+/* 黑色导航 start */
+/* 父级容器作为整个导航的承载容器，其效果是充满全屏，规范大小，背景颜色和字体大小的 */
+.black-nav {
+    width: 100%;
+    height: 40px;
+    /* 当height和line-height相等时，即盒子的高度和行高一样，内容居中。
+    height是两倍line-height，即背景可以接收两行的输入。 */
+    line-height: 40px;              /* 导航文字是上下居中的（一行内居中用line-height），就是height是设置模块高度，而line-height设置行高，
+                                    这样文字就能保持在设置的行高正中，同样也是模块的正中（模块高度=行高） */
+    background-color: #333;
+    font-size: 12px;
+}
+
+
+/* 可以看作一个大类了，只要模块加了 .wrap 属性，就会居中对齐 */
+/* 设置文字整体居中一行显示 */
+.wrap{
+    width: 1226px;
+    margin: 0 auto;     /* 边距，上下为0，左右auto（就实现了在一行内的居中显示），让块级元素水平居中 */
+    /* 设置的就是文字显示位置 */
+}
+
+/* 设置左右导航的位置居中显示 */
+.black-nav .wrap .black-nav-left {
+    float: left;        /* float 一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止 */
+}
+.black-nav .wrap .black-nav-right {
+    float: right;
+}
+
+/* 设置 li 标签，使得文字水平而非垂直摆放 */
+.black-nav .wrap  li {          /* 这里没有匹配.black-nav-left/right 说明是都匹配，就是左右导航都浮动 */
+    float: left;    
+    /* 元素脱离文档流之后，将不再在文档流中占据空间，而是处于浮动状态（可以理解为漂浮在文档流的上方）。
+脱离文档流的元素的定位基于正常的文档流，当一个元素脱离文档流后，依然在文档流中的其他元素将忽略该元素并填补其原先的空间。
+一个元素浮动时，其他内容会“环绕”该元素。 */
+    position: relative;
+    /* 这里加定位的原因是li标签购物车滑动上去的时候会有内容出现，是相对于li标签来定位的弹出框，所以需要加相对定位 */
+    /* 如果不在 li 标签中加相对定位，弹出框就是相当于整个页面进行定位的，会出现偏移问题 */
+}
+
+.black-nav .wrap .black-nav-left li a{
+    color: white;   
+    /* 由于CSS的层叠（cascading），a元素继承自div的样式（color:red）被浏览器的a元素的默认样式给覆盖了。 */
+    /* A标签默认就有自己的样式，不会自动集成父样式，所以要多设置一次，在li标签里设置只会改变span标签的样式 */
+    /* 这里的a标签会默认继承.black-nav的样式 */
+}
+.black-nav .wrap .black-nav-right li a{
+    color: white;  
+}
+.black-nav .wrap .black-nav-left li span {
+    color:#424242;
+    margin:0 3.6px;
+}
+.black-nav .wrap .black-nav-right li span {
+    color:#424242;
+    margin:0 3.6px;
+}
+
+/* 下载二维码弹出框 */
+.download{
+    width: 124px;
+    height: 0;                    /* 写0是因为鼠标划上去之前它是默认不存在的 */
+    background-color: #fff;
+    box-shadow: 0 1px 5px #aaa;     /* 阴影的x和y坐标，模糊度，阴影颜色 */
+    position: absolute;               /* 相对于导航文字，该二维码应该居中显示在其正下方，所以使用绝对定位 */
+    top: 40px;
+    left: 50%;
+    margin-left: -62px;
+    overflow: hidden;                /* 图片过大，超出的部分隐藏掉 */
+}
+/* 此时会出现图片显示不全的情况，因为图片大小大于模块设置大小，要对图片进行单独设置 */
+.download img{
+    width: 90px;
+    margin: 18px auto 0;    /* top 18 左右居中 底部不管 */
+}
+
+/* 购物车二维码 */
+.black-nav-left li:hover> .download {    /* :hover + .子标签：聚焦自己改变其子元素，这里是聚焦于 li 标签，
+    就是 li 标签触发的时候，改变 .download 标签的元素为设置好的行为 */
+
+    /* 这里的 > 是CSS选择器， > 大于号表示某个元素的下一代元素。
+    A>B 指选择A元素里面的B元素，其中B元素是A元素的第一代。*/
+    height: 148px;
+    z-index: 1;
+}
+
+/* 弹出框的白色小箭头实现 */
+.stri {
+    /* 模块形状 */
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid white;     /* 下边框是一个8px的白色实心线 */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    /* 这样的三条边框线可以形成一个小三角形，因为当边框线重合的时候，它们之间重合的部分是切开的，一条线占一半，
+    就实现了半个三角形的效果，然后右边再重合，切一半，三角形的右一半也就出来了。 */
+
+    /* 模块位置 */
+    position: absolute;         /* 相对于 li 标签来做绝对定位 */
+    bottom: 0;                  /* 在 li 标签的最底部 */
+    left: 50%;                  /* 底部居中 */
+    margin-left: -8px;          /* 箭头本身16px，回拉8px即可居中 */
+    display: none;              /* 此元素不会被显示 */
+}
+
+.black-nav-left li:hover> .stri{
+    display: block;             /* 块级元素：占据一定矩形空间，可以通过设置高度、宽度、内外边距等属性，来调整的这个矩形。 */
+}
+
+/* 购物车模块 */
+.cart{
+    width: 120px;
+    height: 40px;
+    background-color: #424242;
+    margin-left: 25px;
+}
+/* 购物车字体 */
+.cart i {
+    font-style: normal;
+    margin-right: 8px;
+}
+/* 当鼠标划入购物车，购物车背景变白，字体变橘，所以要用到 hover */
+.cart:hover {                   /* 整个 li 标签（购物车）背景变白 */
+    background: #fff;
+}
+/* 跳转链接a的字体和图标变橘 */
+/* 注意这里，当a标签里不仅是一段文字，是有好几个标签的时候，要针对到具体标签修改，才能设置样式成功 */
+.cart:hover a i{ 
+    color: #ff6700;
+}
+/* 弹出框设置 */
+.cart-list{
+    width: 316px;
+    height: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);        /* rgba：三原色 + 透明度 */
+    position: absolute;
+    right: 0;               /* 紧贴右边 */
+    top: 40px;
+    color: #424242;
+    overflow: hidden;       /* 隐藏超出内容 */
+    line-height: 100px;     /* 文字内容居中 */
+}
+.cart:hover .cart-list {
+    height: 100px;
+    z-index: 1;
+}
+/* 黑色导航 end */
+
+
+/* 白色导航 start */
+.white-nav{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    position: relative;
+}
+/* 这里的模块居中.wrap可以直接统一写在黑色导航中 */
+
+/* logo */
+.logo{
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    float: left;
+    margin-top: 22.5px;
+    overflow: hidden;           /* 因为这里有个滑动效果，如果没有hidden去隐藏另一张图片，就会显示出两张紧挨着的图片了 */
+    position: relative;
+
+    /* 模块设置圆角效果 */
+    border-radius: 10px;
+}
+/* 注意设置的是直接子元素，就是第一代子元素 */
+/* 设置两张图片的统一效果 */
+.logo>img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+
+    /* 动画效果：transition属性是CSS3中用于定义元素从一种样式状态平滑过渡到另一种样式状态的动画效果。
+    当元素的指定样式属性发生变化时，transition会自动为其添加一个过渡动画，而非立即跳变。 */
+    /* all 表示所有属性都参与过渡效果，过渡需要花费0.2s */
+    transition: all 0.2s;
+}
+/* 单独设置图片效果 */
+.mi-home {
+    left: 0;
+}
+.mi-logo {
+    left: -55px;
+}
+/* 动画效果 */
+.logo:hover>.mi-logo{
+    left: 0;
+}
+.logo:hover>.mi-home{
+    left: -55px;
+}
+/* 列表结构 */
+.nav-bar {
+    width: 875px;
+    height: 100px;
+    line-height: 100px;         /* 如果一个模块中有要求上下居中的文字，都这么写 */
+    float: left;
+    /*overflow: hidden;*/
+}
+/* 让 li 标签全部浮动就能实现将块级（占一行，成一列）变成内联（一行内摆放） */
+.nav-bar li{
+    float: left;
+}
+/* 设置左侧白色导航的图片 */
+.nav-bar li .newLife{
+    margin-left: 25px;
+    width: 180px;
+    height: 70px;
+}
+/* 设置左侧白色导航的文字 */
+.nav-bar li a {
+    color: #333;
+    padding: 0 10px ;   /* 内边距上下为0，左右10px */
+}
+/* 文字鼠标滑动成橘黄色，注意要直接设置a标签，因为它本身有默认样式 */
+.nav-bar li a:hover {
+    color: #ff6700;
+}
+
+/* 搜索框右侧摆放 */
+.search {
+    width: 296px;
+    height: 100px;
+    float: right;
+}
+.search input {
+    /*  296px - 244px = 52px（按钮大小） */
+    width: 244px;
+    height: 50px;
+    float: left;
+
+    border: 1px solid #e0e0e0;
+
+    /* 去掉输入框的默认边框 */
+    box-sizing: border-box;
+    /* 怪异盒模型：border-box 告诉浏览器去理解你设置的边框border和内边距padding的值是包含在width内的。
+    这样就不会超出边框范围了（边框并不会撑开盒子width本身的大小），这样两个就可以一起在一行居中摆放了 */
+
+    /* 再设置上下居中 */
+    margin-top: 25px;   /* 高度的一半，居中显示 */
+    padding: 0 10px;    /* 文字上下不变，左右为10px，文字向右移动10px */
+
+    /* 设置输入框的右边框和按钮的左边框重合（只留下按钮的边框） */
+    border-right: 0;
+
+    /* 去除默认样式（选中输入框后有黑色加粗边框） */
+    outline: none;
+}
+.search button {
+    width: 52px;
+    height: 50px;
+    float: right;
+
+    border: 1px solid #e0e0e0;
+    margin-top: 25px;  
+}
+/* 按钮鼠标划上去要变色 */
+.search button:hover {
+    background-color: #ff6700;
+    color: #fff;
+}
+
+/* 白色导航滑动门 */
+.nav-bar-list {
+    width: 100%;
+    height: 229px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    /* h-shadow 必需的。水平阴影的位置。允许负值    
+    0：这是水平偏移量。正值表示阴影向右偏移，负值表示向左偏移。
+    在这里，0 表示阴影在水平方向上没有偏移，即阴影与元素本身的水平位置对齐。
+
+    v-shadow 必需的。垂直阴影的位置。允许负值。
+    3px：这是垂直偏移量。正值表示阴影向下偏移，负值表示向上偏移。在这里，3px 表示阴影向下偏移了3个像素单位。
+    
+    blur 可选。模糊距离
+    4px：这是模糊半径。它决定了阴影边缘的模糊程度。值越大，阴影的边缘就越模糊，看起来就越柔和；值越小，阴影的边缘就越清晰。
+    在这里，4px 表示阴影有一定的模糊效果，使得阴影看起来比较柔和。*/
+
+    /* 定位（直接相对于白色导航定位 .white-nav ） */
+    position: absolute;
+    left: 0;                /* 充满全屏，而不是针对某一个文字定位 */
+    top: 100px;
+
+    /* 滑动门中的文字滑动上去自动变色，因为已经在 .nav-bar 中一起设置过了 */
+    display: none;
+}
+.nav-bar li:hover>.nav-bar-list {
+    z-index: 1;                     /* z轴提升，不然会被后面的模块覆盖住 */
+    display: block;
+}
+/* 注意 .nav-bar 中设置的 line-height: 100px; 会被 .nav-bar-list 直接继承，导致下移 100px，所以需要重新设置覆盖。 */
+.nav-bar-list li{
+    line-height: normal;
+    border-right: 1px solid #eee ;      /* 手机之间用灰白色线分开 */
+}
+.nav-bar-list img{
+    height: 150px;
+}
+.nav-bar-list .name {
+    font-size: 12px;
+    color: #333;
+}
+.nav-bar-list .price {
+    font-size: 12px;
+    color: #ff6700;
+    margin-bottom:10px;
+}
+/* 白色导航 end */
+
+
+/* Banner内容 start */
+.banner{
+    width: 100%;
+    height: 460px;
+}
+.banner .banner-img{
+    width: 100%;        /* 就相当于让图片充满 .wrap 容器 */
+}
+.banner .wrap{
+    position: relative;
+}
+/* 导航位置 */
+.slide{
+    width: 234px;
+    height: 420px;      /* 420+20+20 = 460 */
+    padding: 20px 0;    /* 上下20，左右0 */
+    background-color: rgba(105,101,101,0.6);
+    position: absolute; /* 相对于居中容器 wrap */
+    left: 0;
+    top: 0;
+}
+/* 导航文字位置 */
+.slide>ul>li {
+    height: 42px;
+    line-height: 42px;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 14px;
+}
+/* color 要在 a 内设置（因为a自带color会覆盖a外层的color设置） */
+.slide>ul>li>a{
+    color: #fff;
+}
+/* 箭头在右侧 */
+.slide i {
+    float: right;
+    padding-right: 30px;
+}
+/* 最好对应直接子元素，不然会影响后续的 */
+.slide>ul>li:hover {
+    background-color: #ff6700;
+}
+.slide-list {
+    /* width = wrap(1226px) - slide(234px) */
+    width: 992px;
+    height: 460px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    position: absolute;
+    top: 0;
+    left: 234px;
+
+    border-left: none;          /* 去除左侧边框 */
+    box-sizing: border-box;     /* 不因为边框设置而撑开容器本身大小 */
+
+    /* 默认不显示 */
+    display: none; 
+}
+.slide-list ul {
+    width: 100%;
+    padding-left: 25px;
+}
+.slide-list ul li {
+    width: 240px;
+    height: 76px;
+    float: left;                    /* li 标签需要设置向左浮动 */
+    padding: 18px 0 18px 20px ;     /* 上、右、下、左 */
+    box-sizing: border-box;         /* 不撑大 */
+    line-height: 76px;              /* 文字在每一行相对于图片都是水平放的 */
+}
+.slide-list span{
+    color: #333;
+    font-size: 14px;
+
+    position: relative;
+    left: 10px;             /* 右移10px */
+}
+/* 高亮效果 */
+.slide-list li a:hover span{
+    color: #ff6700;
+}
+/* 滑动导航展示（注意不要用 .slide-list 来索引 .slide-list） */
+.slide li:hover .slide-list {
+    display: block;
+}
+/* Banner内容 end */
+
+
+/* 广告模块 start */
+.ad{
+    width: 100%;
+    height: 170px;
+    padding: 14px 0;        /* 上下14px，左右为0 */
+    background-color: #fff;
+}
+/* 左侧广告栏的位置布局 */
+.ad-aside{
+    width: 234px;
+    height: 170px;
+    background-color: #5f5750;
+    padding: 3px;                 
+    box-sizing: border-box;           /* padding内边距也会将容器撑大 */
+    font-size: 12px;
+    float: left;
+}
+/* li 标签的位置和整体透明度 */
+.ad-aside li{
+    float: left;
+    /* 宽高要根据空间实际计算 */
+    width: 76px;
+    height: 82px;
+
+    padding-top: 18px;
+    box-sizing: border-box;
+    opacity: 0.7;       /* 透明度 */
+
+}
+/* li a 标签中的具体图标文字设置 */ 
+.ad-aside i {
+    font-size: 24px;            /* iconfont 字体图标大小设置 */
+    margin-bottom: 4px;
+}
+.ad-aside a{
+    color: #fff;
+}
+/* 滑动上去透明度变成 1 */
+.ad-aside li:hover{             /* 改变 li 标签本身的透明度 */
+    opacity: 1;
+}
+
+/* 右侧图片广告布局设置 */
+.ad-img{
+    width: 316px;
+    margin-left: 14.6px;
+    height: 170px;
+    float: left;
+}
+.ad-img img{
+    width: 100%;
+}
+/* 广告模块 end */
+
+
+/* 内容模块 start */
+.content {
+    width: 100%;
+    background-color: #f1f1f1;
+    /* overflow: hidden; */
+    padding: 4px 0 12px;
+}
+/* 内容模块 end */
+
+
+/* 手机模块 start */
+/* title 写成公共的，因为内容模块中不止手机一个内容块  */
+.title{
+    text-align: left;
+    color: #333;
+    font-size: 22px;
+    font-weight: 200;       /* 粗细 */
+    line-height: 58px;      /* 行高 */
+}
+/* 手机图片模块大致位置 */
+.phone-box{
+    width: 100%;
+    height: 614px;
+}
+.phone-box-left {
+    width: 234px;
+    height: 614px;
+    float: left;
+}
+
+/* 手机模块右侧 */
+.phone-box-right{
+    width: 992px;
+    height: 614px;
+    float: left;
+}
+/* 每一个广告模块，一排4个，两排 */
+.item {
+    width: 234px;
+    margin: 0 0 14px 14px;
+    height: 300px;
+    background-color: #fff;
+    padding: 20px 0;
+    box-sizing: border-box;
+    float: left;
+
+    /* 模块改变时触发动画 */
+    transition: all 0.2s linear;        /* linear 匀速 */
+}
+.item:hover{
+    transform: translateY(-2px);    /* Y轴移动-2px */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+/* 处理具体文本 */
+.item-img {
+    width: 160px;
+    margin-bottom: 18px;
+}
+.item-name{
+    width: 214px;
+    height: 21px;
+    color: #333;
+    line-height: 21px;
+    margin: 0 auto 2px;     /* 上0，左右自适应，下2px */
+}
+.item-desc{
+    width: 214px;
+    height: 18px;
+    color: #b0b0b0;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 auto 10px;
+}
+.item-price{
+    color:#ff6700;
+    font-size:14px;
+}
+.big-img{
+    width: 100%;
+    height: 120px;
+    margin: 22px 0;
+}
+/* 手机模块 end */
+
+
+/* 家电模块 start */
+.elc-box {
+    width: 100%;
+    height: 614px;
+}
+.elc-item{
+    /* 取消掉继承自item标签的内边框属性 */
+    padding: 0;
+    margin-left: 0;
+}
+.item-price del{
+    /* 将删除样式改为灰色 */
+    color: #b0b0b0;
+    margin-left: 5px;
+}
+.item-last{
+    width: 234px;
+    height: 300px;
+    float: left;
+    margin-left: 14px;
+}
+.item-last div{
+    width: 234px;
+    height: 143px;
+    background-color: #fff;
+    transition: all 0.2s linear;
+}
+/* 找到第一个div */
+.item-last>div:first-child {
+    margin-bottom: 14px;
+}
+.item-last>div:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);    /* 30px的模糊度 */
+}
+/* 上图片 */
+.item-img-last-top {
+    float: right;
+    margin-top:25px;
+}
+/* 上文字 */
+.item-name-last-top{
+    width: 214px;
+    height: 21px;
+    color: #333;
+    line-height: 21px;
+    margin: 0 auto 2px;     
+    padding-top:25px;
+}
+/* 上价格 */
+.item-price-last-top{
+    color:#ff6700;
+    font-size:14px;
+    line-height: 14px;
+    position: relative;
+    top:55px;
+}
+
+/* 下文字 */
+.item-name-last-bottom {
+    /* float: left; */
+    width: 214px;
+    /* height: 21px; */
+    color: #333;
+    line-height: 30px;
+    /* margin: 0 auto 2px;     */
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 30px;
+    text-align: left;
+}
+/* 下价格 */
+.item-price-last-bottom{
+    /* float: left; */
+    color:#b0b0b0;
+    font-size:14px;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+/* 下图标 */
+.item-last-bottom i{
+    float: right;
+    font-size: 50px;
+    color: #ff6700;
+    padding-right: 10px;
+    position: relative;
+    bottom: 40px;
+}
+
+.elc-box .item-desc{
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+/* 家电模块 end */
+
+
+/* 视频模块 start */
+.video-box {
+    width: 100%;
+    height: 299px;
+}
+.video-item {
+    width: 296px;
+    height: 285px;
+    background-color: #fff;
+    float: left;
+    margin-bottom: 14px;
+    margin-right: 14px;
+
+    transition: all 0.2s linear;
+}
+/* 最后一个元素右边不需要间隙了，取消掉 */
+.video-box>div:last-child{
+    margin-right: 0;
+}
+.video-item:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);    /* 30px的模糊度 */
+}
+
+.video-img {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+    position: relative;                 /* 播放按钮定位 */
+}    
+/* 播放按钮的椭圆边框 */
+.btn{
+    width: 32px;
+    height: 20px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+}
+/* 播放按钮中间的向右小三角 */
+.sanjiao{
+    width: 0;
+    height: 0;
+
+    /* 用边框撑起来的一个三角效果 */
+    border-bottom: 6px solid transparent;        
+    border-left: 8px solid white;
+    border-top: 6px solid transparent;
+
+    /* 注意，这里的三角是在.btn模块里的，所以这里的位置是相对于.btn框的左上角来定位的，所以margin越小越靠近左上角。 */
+    margin: 5px auto;       /* 上下、左右 */
+}
+/* 字体 */
+.video-name{
+    color: #333;
+    font-size: 14px;
+    width: 285px;
+    height: 21px;
+    margin: 0 auto 6px;     /* 上、居中、下 */
+}
+.video-desc{
+    width: 285px;
+    height: 18px;
+    margin: 0 auto;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+/* 滑动上去播放按钮背景和边框变橘 */
+.video-img:hover .btn{
+    background-color: #ff6700;
+    border-color: #ff6700;
+}
+
+/* 视频模块 end */  
+
+
+/* 页脚模块 start */
+.footer-service{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding: 27px 0;
+    border-bottom: 1px solid #e0e0e0;   /* 底部灰色的线 */
+}
+.footer-service li{
+    float: left;
+    width: 20%;             /* 五个元素，每个20% */
+    border-right: 1px solid #b0b0b0;
+
+    /* 不加怪异盒会让边框撑大元素的 */
+    box-sizing: border-box;
+}
+.footer-service li:last-child {
+    border-right: 0;        /* 需要去除最后一个分割线 */
+}
+/* 维修图标设置 */
+.footer-service li i{
+    font-size: 24px;
+    margin-right: 6px;
+}
+.footer-service li a {
+    color: #616161;
+}
+.footer-service li a:hover{
+    color: #ff6700;
+}
+
+/* 帮助中心 */
+.footer-link{
+    width: 100%;
+    height: 172px;
+    padding: 40px 0;
+}
+/* ul 横向摆放，所以需要针对 ul 设置 float */
+.footer-link ul{
+    float: left;
+    width: 160px;
+    /* text-align: left; */
+    color: #424242;
+    font-size: 16px;
+    line-height: 1.5;      /* 行间距 */
+}
+.footer-link ul a {
+    font-size: 12px;
+    color: #757575;
+}
+.footer-link ul li{
+    margin-top: 10px;
+}
+.footer-link ul li:first-child{
+    margin-bottom: 20px;
+}
+
+.footer-aside{
+    width: 250px;
+    height: 111px;
+    border-left: 1px solid #e0e0e0;    /* 模块之间竖线隔开 */
+    float: right;
+    color: #616161;
+}
+.footer-aside .tel{
+    font-size: 22px;
+    line-height: 22px;
+    color: #ff6700;
+    margin-bottom: 5px;
+}
+.footer-aside .time{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.footer-aside .kefu {
+    /* 将 a 标签变成一个按钮的效果 */
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;              /* 一行内上下居中 */
+    border: 1px solid #ff6700;    /* 边框 */
+    box-sizing: border-box;
+    margin: 0 auto;                 /* 一行内居中的效果 */
+    color: #ff6700;
+    font-size: 12px;
+
+    /* 缓慢改变的 hover 效果 */
+    transition: all 0.2s linear;
+}
+.kefu:hover{
+    background-color: #f25807;
+    border-color: #f25807;
+    color: #fff;
+}
+.follow{
+    font-size: 12px;
+    margin-top: 10px;
+}
+.follow span{
+    position: relative;
+    top: 10px;
+}
+.follow img{
+    width: 24px;
+    margin-left: 6px;
+    position: relative;
+    top: 7px;
+}
+/* 页脚模块 end */
